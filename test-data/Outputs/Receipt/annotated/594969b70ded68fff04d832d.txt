@@ -1,0 +1,30 @@
+
+MC JHNSVL BEER BRAT 1.00-F
+MC OP SCANNED COUPON 1.00-
+MC MCBSN CH GRL 5Z 1.00-F
+Total Before Savings 59.45
+Your Savings 14.15
+Total After Savings 45.30
+TAX 0.00
+**** BALANCE 45.30
+**************************************
+Payment Type: Capital One Visa
+CHIP Purchase
+Card: ************7171
+Payment Amt: $45.30
+BALANCE: $
+AID: A0000000031010
+AUTH#07752D RC#00 06/11/17 11:20am
+*************************************
+VISA 45.30
+CHANGE 0.00
+********* SAVINGS SUMMARY **********
+Manuf Coupons: 3.00
+Card Savings: 11.15
+Your Total Savings: 14.15
+**************************************
+06/11/17 11:20am 6442 503 72 87226
+2017 CARD SAVINGS
+$721.58
+**************************************
+

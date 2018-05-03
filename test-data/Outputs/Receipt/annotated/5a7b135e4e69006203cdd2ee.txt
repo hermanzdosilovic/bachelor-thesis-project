@@ -1,0 +1,31 @@
+
+Meat
+HYV TRUE BNLS/SKNLS 5.14 t F
+HYV TRUE BNLS/SKNLS 4.93 t F
+Produce
+HYV SHRT CTS CNTLOUP 4.79 t F
+Tax Rate Taxable Amount Tax Amount
+Tax1..7.85 22.81 1.79
+Tax2..4.85 38.50 1.87
+Total Tax: $3.66
+Master Card $64.97
+[ ] XXXX XXXX XXXX 6852
+Auth# 07253P Ref# 5814400768
+BALANCE DUE 64.97
+CHANGE $0.00
+Your Coupon Savings
+Vendor Coupon 3 6.04
+Total Coupons 3 6.04
+*******************************************
+WIN A $500 HY-VEE GIFT CARD!
+Please visit www.Hy-VeeSurvey.com
+and key in the 16-digit code below
+to take a brief survey and enter for
+your chance to win a $500 Hy-Vee
+gift card.
+# 0110138100060152
+No purchase necessary to enter
+sweepstakes. See web site for official
+sweepstakes rules.
+*******************************************
+
