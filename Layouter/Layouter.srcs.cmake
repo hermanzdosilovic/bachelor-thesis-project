@@ -1,7 +1,9 @@
 set( SOURCES "" )
 
 set( Source
+    ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/OcrResult.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrResult.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Types.hpp
 )

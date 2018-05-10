@@ -2,6 +2,8 @@
 
 #include "Types.hpp"
 
+#include <ostream>
+
 namespace layouter
 {
 
@@ -22,6 +24,8 @@ public:
         y_{ y },
         width_{ width },
         height_{ height } {};
+
+    wide_string toString();
 
     wide_char value_;
     value_t   x_;

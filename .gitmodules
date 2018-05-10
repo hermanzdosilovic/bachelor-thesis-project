@@ -1,3 +1,6 @@
 [submodule "LayouterUtils/json"]
 	path = LayouterUtils/json
 	url = https://github.com/nlohmann/json.git
+[submodule "LayouterUtils/spdlog"]
+	path = LayouterUtils/spdlog
+	url = https://github.com/gabime/spdlog.git

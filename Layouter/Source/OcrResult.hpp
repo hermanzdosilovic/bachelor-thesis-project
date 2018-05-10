@@ -3,6 +3,7 @@
 #include "OcrChar.hpp"
 
 #include <vector>
+#include <ostream>
 
 namespace layouter
 {
@@ -14,6 +15,8 @@ public:
     using Lines = std::vector< Line >;
 
     OcrResult() = default;
+
+    wide_string toString();
 
     Lines lines_;
 };

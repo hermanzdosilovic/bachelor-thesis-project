@@ -1,17 +1,15 @@
 #pragma once
 
-#include <string_view>
+#include <istream>
+#include <ostream>
 
 namespace layouter
 {
 
 class OcrResult;
 
-namespace Utils
-{
-
-OcrResult deserialize( std::string_view const & jsonFilePath );
+std::istream & operator>>( std::istream & is, OcrResult & ocrResult );
+std::ostream & operator<<( std::ostream & os, OcrResult const & ocrResult );
 
 }
 
-}
