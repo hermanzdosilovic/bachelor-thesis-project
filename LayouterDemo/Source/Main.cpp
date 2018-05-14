@@ -1,11 +1,11 @@
 #include <OcrResult.hpp>
-#include <Layouter/NoneLayouter.hpp>
 
 #include <DatasetReader.hpp>
 #include <OcrResultSerializer.hpp>
 #include <String.hpp>
 
 #include <iostream>
+#include <Layouter/Layouter.hpp>
 
 int main( int argc, char ** argv )
 {
@@ -13,7 +13,7 @@ int main( int argc, char ** argv )
     for ( auto mapEntry : inputs )
     {
         std::cout << mapEntry.first << std::endl;
-        layouter::OcrResult layoutedResult{ layouter::layout( layouter::NoneLayouterParameter{}, mapEntry.second ) };
+        layouter::OcrResult layoutedResult{ layouter::layout( layouter::aligner::NoneAlignerParameter{}, layouter::spacer::NoneSpacerParameter{}, mapEntry.second ) };
         std::cout << layoutedResult.toString() << std::endl;
     }
 

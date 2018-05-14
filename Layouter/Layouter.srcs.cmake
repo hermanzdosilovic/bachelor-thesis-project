@@ -1,8 +1,19 @@
 set( SOURCES "" )
 
 set( Source
-    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/NoneLayouter.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/NoneLayouter.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Layouter.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Layouter.hpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.hpp
+
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/NoneSpacer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/NoneSpacer.hpp
+
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrResult.cpp
