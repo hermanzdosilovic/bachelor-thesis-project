@@ -1,6 +1,8 @@
 set( SOURCES "" )
 
 set( Source
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/NoneLayouter.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/NoneLayouter.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrChar.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrResult.cpp

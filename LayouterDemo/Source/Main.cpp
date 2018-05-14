@@ -1,17 +1,20 @@
 #include <OcrResult.hpp>
+#include <Layouter/NoneLayouter.hpp>
 
-#include <OcrResultSerializer.hpp>
 #include <DatasetReader.hpp>
+#include <OcrResultSerializer.hpp>
 #include <String.hpp>
 
 #include <iostream>
 
 int main( int argc, char ** argv )
 {
-    layouter::Dataset const dataset{ layouter::Util::readDataset( argv[ 1 ], "Receipt", "annotated" ) };
-    for ( layouter::DataEntry dataEntry : dataset )
+    std::map< std::string, layouter::OcrResult > inputs{ layouter::Util::readInputs( argv[ 1 ], "Receipt", "annotated" ) };
+    for ( auto mapEntry : inputs )
     {
-        std::cout << dataEntry.second << std::endl << std::endl;
+        std::cout << mapEntry.first << std::endl;
+        layouter::OcrResult layoutedResult{ layouter::layout( layouter::NoneLayouterParameter{}, mapEntry.second ) };
+        std::cout << layoutedResult.toString() << std::endl;
     }
 
     return 0;

@@ -21,6 +21,7 @@ namespace Util
 Dataset readDataset( std::string const & datasetPath, std::string const & useCase, std::string const & model );
 std::map< std::string, OcrResult > readInputs( std::string const & datasetPath, std::string const & useCase, std::string const & model );
 std::map< std::string, wide_string > readOutputs( std::string const & datasetPath, std::string const & useCase, std::string const & model );
+
 }
 
 }
