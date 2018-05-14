@@ -2,6 +2,8 @@
 
 #include "Types.hpp"
 
+#include <cstddef>
+
 namespace layouter
 {
 
@@ -16,8 +18,8 @@ public:
 
     MaxOverlapAlignerParameter() = default;
 
-    value_t overlapThreshold_ = 0.1f;
-    value_t overlapLookback_  = 1;
+    value_t     overlapThreshold_ = 0.1f;
+    std::size_t overlapLookback_  = 1;
 };
 
 OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const & ocrResult );
