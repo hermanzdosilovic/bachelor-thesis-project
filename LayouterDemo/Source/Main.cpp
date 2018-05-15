@@ -12,7 +12,16 @@ int main( int argc, char ** argv )
     std::map< std::string, layouter::OcrResult > inputs{ layouter::Util::readInputs( argv[ 1 ], "Receipt", "annotated" ) };
     for ( auto mapEntry : inputs )
     {
-        layouter::OcrResult layoutedResult{ layouter::layout( layouter::aligner::MaxOverlapAlignerParameter{}, layouter::spacer::NoneSpacerParameter{}, mapEntry.second ) };
+        layouter::OcrResult layoutedResult
+                            {
+                                layouter::layout
+                                (
+                                    layouter::aligner::MaxOverlapAlignerParameter{},
+                                    layouter::spacer::AvgCharWidthSpacerParameter{},
+                                    mapEntry.second
+                                )
+                            };
+
         std::cout << layoutedResult.toString() << std::endl;
         break;
     }

@@ -1,4 +1,5 @@
 #include "NoneAligner.hpp"
+
 #include "OcrResult.hpp"
 
 namespace layouter::aligner
