@@ -56,4 +56,10 @@ std::size_t editDistance( StringType const & source, StringType const & target )
     return d( d.rows() - 1, d.cols() - 1 );
 }
 
+template< typename StringType >
+inline std::size_t worstCaseEditDistance( StringType const & source, StringType const & target )
+{
+    return std::max( source.length(), target.length() );
+}
+
 }

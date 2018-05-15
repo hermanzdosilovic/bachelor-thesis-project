@@ -108,7 +108,7 @@ TEST_CASE( "source and target have common prefix", "[edit distance]" )
     }
 }
 
-TEST_CASE( "arbitrary source and target" )
+TEST_CASE( "arbitrary source and target", "[edit distance]" )
 {
     /* Ground truth: https://planetcalc.com/1721/ */
 
@@ -121,6 +121,42 @@ TEST_CASE( "arbitrary source and target" )
     REQUIRE( Util::editDistance< std::string >( "ab", "a\nb" ) == 1 );
     REQUIRE( Util::editDistance< std::string >( "abcdefg", "abc\nd\nefg" ) == 2 );
     REQUIRE( Util::editDistance< std::string >( "abc\ndefg", "abc\nd\nefg" ) == 1 );
+}
+
+TEST_CASE( "worst case edit distance", "[worst case edit distance]" )
+{
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "efg" ) == 3 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "efg", "ab" ) == 3 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "abc" ) == 3 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "efg" ) == 3 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "efg", "abc" ) == 3 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "efgabc" ) == 6 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "efgabc", "abc" ) == 6 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "e" ) == 3 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "e", "abc" ) == 3 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "a" ) == 3 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "abc" ) == 3 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "a" ) == 1 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "" ) == 1 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "a" ) == 1 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "" ) == 0 );
+
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "abcdef", "ghijkl" ) == 6 );
+    REQUIRE( Util::worstCaseEditDistance< std::string >( "ghijkl", "abcdef" ) == 6 );
 }
 
 }
