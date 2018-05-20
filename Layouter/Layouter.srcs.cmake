@@ -4,6 +4,7 @@ set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Layouter.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Layouter.hpp
 
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/Aligner.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.cpp

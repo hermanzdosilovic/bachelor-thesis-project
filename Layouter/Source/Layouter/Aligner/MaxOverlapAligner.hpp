@@ -16,7 +16,7 @@ class MaxOverlapAlignerParameter final
 {
 public:
 
-    MaxOverlapAlignerParameter() = default;
+    MaxOverlapAlignerParameter() noexcept = default;
 
     value_t     overlapThreshold_ = 0.1f;
     std::size_t overlapLookback_  = 1;

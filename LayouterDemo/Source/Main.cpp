@@ -10,7 +10,7 @@
 int main( int argc, char ** argv )
 {
     std::map< std::string, layouter::OcrResult > inputs{ layouter::Util::readInputs( argv[ 1 ], "Receipt", "annotated" ) };
-    for ( auto mapEntry : inputs )
+    for ( auto const & mapEntry : inputs )
     {
         layouter::OcrResult layoutedResult
                             {
