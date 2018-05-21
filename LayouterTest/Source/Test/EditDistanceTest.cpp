@@ -2,7 +2,7 @@
 
 #include <catch.hpp>
 
-namespace test
+namespace test::layouter::Util
 {
 
 SCENARIO( "empty source and/or target", "[edit distance]" )

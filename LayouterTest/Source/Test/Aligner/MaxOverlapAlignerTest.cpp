@@ -8,19 +8,19 @@
 
 #include <catch.hpp>
 
-namespace test::aligner
+namespace test::layouter::aligner
 {
 
 TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligner]" )
 {
-    layouter::Dataset const & dataset{ layouter::Util::readDataset( "Receipt", "annotated" ) };
+    ::layouter::Dataset const & dataset{ ::layouter::Util::readDataset( "Receipt", "annotated" ) };
 
     REQUIRE
     (
         alignerTest
         (
-            layouter::aligner::MaxOverlapAlignerParameter{},
-            [] ( layouter::wide_string const & source, layouter::wide_string const & target ) -> float
+            ::layouter::aligner::MaxOverlapAlignerParameter{},
+            [] ( ::layouter::wide_string const & source, ::layouter::wide_string const & target ) -> float
             {
                 return Metric::editDistance( source, target );
             },
@@ -34,8 +34,8 @@ TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligne
     (
         alignerTest
         (
-            layouter::aligner::MaxOverlapAlignerParameter{},
-            [] ( layouter::wide_string const & source, layouter::wide_string const & target ) -> float
+            ::layouter::aligner::MaxOverlapAlignerParameter{},
+            [] ( ::layouter::wide_string const & source, ::layouter::wide_string const & target ) -> float
             {
                 return Metric::editDistance( source, target );
             },

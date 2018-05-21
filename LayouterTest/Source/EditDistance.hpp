@@ -6,7 +6,7 @@
 #include <cstddef>
 #include <cstdint>
 
-namespace test::Util
+namespace test::layouter::Util
 {
 
 template< typename StringType >

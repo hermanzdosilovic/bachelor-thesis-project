@@ -2,15 +2,15 @@
 
 #include "EditDistance.hpp"
 
-namespace test::Metric
+namespace test::layouter::Metric
 {
 
 template< typename StringType >
 float editDistance( StringType const & source, StringType const & target )
 {
     return 1.0f -
-           test::Util::editDistance( source, target ) /
-           static_cast< float >( test::Util::worstCaseEditDistance( source, target ) );
+           Util::editDistance( source, target ) /
+           static_cast< float >( Util::worstCaseEditDistance( source, target ) );
 }
 
 }

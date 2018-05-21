@@ -4,7 +4,7 @@
 
 #include <stddef.h>
 
-namespace test
+namespace test::layouter::Util
 {
 
 SCENARIO( "matrix can have arbitrary size", "[matrix]" )

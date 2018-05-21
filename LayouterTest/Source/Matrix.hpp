@@ -3,7 +3,7 @@
 #include <cstddef>
 #include <vector>
 
-namespace test::Util
+namespace test::layouter::Util
 {
 
 template< typename DataType = double >

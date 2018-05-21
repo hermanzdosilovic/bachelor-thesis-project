@@ -10,18 +10,18 @@
 #include <algorithm>
 #include <limits>
 
-namespace test::aligner
+namespace test::layouter::aligner
 {
 
 template< typename AlignerType, typename Metric >
 float alignerTest( AlignerType const & alignerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
 {
-    layouter::Dataset const & dataset{ layouter::Util::readDataset( useCase, model ) };
+    ::layouter::Dataset const & dataset{ ::layouter::Util::readDataset( useCase, model ) };
     return alignerTest( alignerType, metric, dataset, desiredAccuracy );
 }
 
 template< typename AlignerType, typename Metric >
-float alignerTest( AlignerType const & alignerType, Metric && metric, layouter::Dataset const & dataset, float const desiredAccuracy )
+float alignerTest( AlignerType const & alignerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
 {
     std::shared_ptr< spdlog::logger > console = spdlog::get( "aligner test" );
     if ( console.get() == nullptr )
@@ -34,9 +34,9 @@ float alignerTest( AlignerType const & alignerType, Metric && metric, layouter::
     float maxAccuracy{ std::numeric_limits< float >::min() };
     float avgAccuracy{ 0.0f };
 
-    for ( layouter::DataEntry const & dataEntry : dataset )
+    for ( ::layouter::DataEntry const & dataEntry : dataset )
     {
-        float accuracy{ static_cast< float >( metric( layouter::aligner::align( alignerType, dataEntry.first ).toString(), dataEntry.second ) ) };
+        float accuracy{ static_cast< float >( metric( ::layouter::aligner::align( alignerType, dataEntry.first ).toString(), dataEntry.second ) ) };
         if ( accuracy >= desiredAccuracy )
         {
             satisfactoryAccuracy++;
