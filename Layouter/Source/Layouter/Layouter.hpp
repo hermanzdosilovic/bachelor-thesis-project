@@ -3,7 +3,7 @@
 #include "Aligner/MaxOverlapAligner.hpp"
 #include "Aligner/NoneAligner.hpp"
 #include "OcrResult.hpp"
-#include "Spacer/AvgCharWidthSpacer.hpp"
+#include "Layouter/Spacer/AvgCharWidthSpacer.hpp"
 #include "Spacer/NoneSpacer.hpp"
 
 #include <variant>

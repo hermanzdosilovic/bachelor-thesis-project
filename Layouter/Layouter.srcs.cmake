@@ -10,6 +10,7 @@ set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.hpp
 
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/Spacer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/NoneSpacer.cpp

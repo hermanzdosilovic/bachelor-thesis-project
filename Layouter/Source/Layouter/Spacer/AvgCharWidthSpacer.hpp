@@ -14,7 +14,12 @@ class AvgCharWidthSpacerParameter final
 {
 public:
 
-    AvgCharWidthSpacerParameter() = default;
+    AvgCharWidthSpacerParameter() noexcept = default;
+    AvgCharWidthSpacerParameter
+    (
+        value_t const avgCharWidthThreshold
+    ) :
+        avgCharWidthThreshold_{ avgCharWidthThreshold } {};
 
     value_t avgCharWidthThreshold_ = 0.44f;
 };
