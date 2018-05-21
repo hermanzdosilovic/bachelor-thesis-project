@@ -8,7 +8,6 @@
 #include <spdlog/spdlog.h>
 
 #include <algorithm>
-#include <filesystem>
 #include <limits>
 
 namespace test::aligner
@@ -17,9 +16,9 @@ namespace test::aligner
 template< typename AlignerType, typename Metric >
 float alignerTest( AlignerType const & alignerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
 {
-    layouter::Dataset const & dataset{ layouter::Util::readDataset( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model ) };
+    layouter::Dataset const & dataset{ layouter::Util::readDataset( useCase, model ) };
     return alignerTest( alignerType, metric, dataset, desiredAccuracy );
-};
+}
 
 template< typename AlignerType, typename Metric >
 float alignerTest( AlignerType const & alignerType, Metric && metric, layouter::Dataset const & dataset, float const desiredAccuracy )
@@ -58,6 +57,6 @@ float alignerTest( AlignerType const & alignerType, Metric && metric, layouter::
              );
 
     return satisfactoryAccuracy;
-};
+}
 
 }

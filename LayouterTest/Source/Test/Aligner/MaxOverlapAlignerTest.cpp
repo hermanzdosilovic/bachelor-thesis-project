@@ -13,7 +13,7 @@ namespace test::aligner
 
 TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligner]" )
 {
-    layouter::Dataset const & dataset{ layouter::Util::readDataset( std::filesystem::current_path().parent_path().string() + "/test-data", "Receipt", "annotated" ) };
+    layouter::Dataset const & dataset{ layouter::Util::readDataset( "Receipt", "annotated" ) };
 
     REQUIRE
     (

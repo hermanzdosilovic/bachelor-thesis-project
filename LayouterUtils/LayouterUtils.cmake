@@ -12,6 +12,6 @@ if( NOT TARGET LayouterUtils )
 
     find_package( Threads )
 
-    target_link_libraries( LayouterUtils PUBLIC Layouter ${CMAKE_THREAD_LIBS_INIT} )
+    target_link_libraries( LayouterUtils PUBLIC Layouter ${CMAKE_THREAD_LIBS_INIT} stdc++fs )
 
 endif( NOT TARGET LayouterUtils )

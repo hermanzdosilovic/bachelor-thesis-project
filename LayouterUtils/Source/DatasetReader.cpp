@@ -6,6 +6,7 @@
 #include <dirent.h>
 #include <iostream>
 #include <fstream>
+#include <filesystem>
 
 namespace layouter::Util
 {
@@ -27,6 +28,11 @@ Dataset readDataset( std::string const & datasetPath, std::string const & useCas
     }
 
     return dataset;
+}
+
+Dataset readDataset( std::string const & useCase, std::string const & model )
+{
+    return readDataset( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }
 
 std::map< std::string, OcrResult > readInputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
@@ -68,6 +74,11 @@ std::map< std::string, OcrResult > readInputs( std::string const & datasetPath, 
     closedir( dir );
 
     return inputs;
+}
+
+std::map< std::string, OcrResult > readInputs( std::string const & useCase, std::string const & model )
+{
+    return readInputs( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }
 
 std::map< std::string, wide_string > readOutputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
@@ -117,6 +128,11 @@ std::map< std::string, wide_string > readOutputs( std::string const & datasetPat
     closedir( dir );
 
     return outputs;
+}
+
+std::map< std::string, wide_string > readOutputs( std::string const & useCase, std::string const & model )
+{
+    return readOutputs( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }
 
 }
