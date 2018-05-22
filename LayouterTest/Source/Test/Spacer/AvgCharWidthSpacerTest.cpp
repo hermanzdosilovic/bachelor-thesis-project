@@ -28,7 +28,7 @@ TEST_CASE( "average char width spacer test on annotated Receipt", "[average char
             },
             dataset,
             0.95f
-        )
+        ).satisfactoryAccuracy_
         >= 0.66f
     );
 
@@ -44,7 +44,7 @@ TEST_CASE( "average char width spacer test on annotated Receipt", "[average char
             },
             dataset,
             0.99f
-        )
+        ).satisfactoryAccuracy_
         >= 0.19f
     );
 }

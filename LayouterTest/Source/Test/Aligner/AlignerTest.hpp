@@ -1,5 +1,7 @@
 #pragma once
 
+#include "TestResult.hpp"
+
 #include <OcrResult.hpp>
 #include <Layouter/Aligner/Aligner.hpp>
 
@@ -14,14 +16,14 @@ namespace test::layouter::aligner
 {
 
 template< typename AlignerType, typename Metric >
-float alignerTest( AlignerType const & alignerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
+Util::TestResult alignerTest( AlignerType const & alignerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
 {
     ::layouter::Dataset const & dataset{ ::layouter::Util::readDataset( useCase, model ) };
     return alignerTest( alignerType, metric, dataset, desiredAccuracy );
 }
 
 template< typename AlignerType, typename Metric >
-float alignerTest( AlignerType const & alignerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
+Util::TestResult alignerTest( AlignerType const & alignerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
 {
     std::shared_ptr< spdlog::logger > console = spdlog::get( "aligner test" );
     if ( console.get() == nullptr )
@@ -56,7 +58,7 @@ float alignerTest( AlignerType const & alignerType, Metric && metric, ::layouter
                  satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy
              );
 
-    return satisfactoryAccuracy;
+    return { satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy };
 }
 
 }

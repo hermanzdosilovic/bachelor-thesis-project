@@ -26,7 +26,7 @@ TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligne
             },
             dataset,
             0.85f
-        )
+        ).satisfactoryAccuracy_
         >= 0.58f
     );
 
@@ -41,7 +41,7 @@ TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligne
             },
             dataset,
             0.9f
-        )
+        ).satisfactoryAccuracy_
         >= 0.1f
     );
 }

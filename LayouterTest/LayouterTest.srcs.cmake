@@ -3,6 +3,7 @@ set( SOURCES "" )
 set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Matrix.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/EditDistance.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/TestResult.hpp
 
     ${CMAKE_CURRENT_LIST_DIR}/Source/Metric/EditDistanceMetric.hpp
 

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "TestResult.hpp"
+
 #include <OcrResult.hpp>
 #include <Layouter/Aligner/Aligner.hpp>
 #include <Layouter/Spacer/Spacer.hpp>
@@ -15,14 +17,14 @@ namespace test::layouter::spacer
 {
 
 template< typename AlignerType, typename SpacerType, typename Metric >
-float spacerTest( AlignerType const & alignerType, SpacerType const & spacerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
+Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const & spacerType, Metric && metric, std::string const & useCase, std::string const & model, float const desiredAccuracy )
 {
     ::layouter::Dataset const & dataset{ ::layouter::Util::readDataset( useCase, model ) };
     return spacerTest( alignerType, spacerType, metric, dataset, desiredAccuracy );
 }
 
 template< typename AlignerType, typename SpacerType, typename Metric >
-float spacerTest( AlignerType const & alignerType, SpacerType const & spacerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
+Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const & spacerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
 {
     std::shared_ptr< spdlog::logger > console = spdlog::get( "spacer test" );
     if ( console.get() == nullptr )
@@ -58,7 +60,7 @@ float spacerTest( AlignerType const & alignerType, SpacerType const & spacerType
                     satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy
             );
 
-    return satisfactoryAccuracy;
+    return { satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy };
 }
 
 }
