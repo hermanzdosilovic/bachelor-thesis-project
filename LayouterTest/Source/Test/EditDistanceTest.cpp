@@ -1,4 +1,4 @@
-#include "EditDistance.hpp"
+#include <EditDistance.hpp>
 
 #include <catch.hpp>
 
@@ -17,7 +17,7 @@ SCENARIO( "empty source and/or target", "[edit distance]" )
 
             THEN( "edit distance is the same as target length" )
             {
-                REQUIRE( Util::editDistance( source, target ) == target.length() );
+                REQUIRE( ::layouter::Util::editDistance( source, target ) == target.length() );
             }
         }
 
@@ -27,7 +27,7 @@ SCENARIO( "empty source and/or target", "[edit distance]" )
 
             THEN( "edit distance is 0" )
             {
-                REQUIRE( Util::editDistance( source, target ) == 0 );
+                REQUIRE( ::layouter::Util::editDistance( source, target ) == 0 );
             }
         }
     }
@@ -42,7 +42,7 @@ SCENARIO( "empty source and/or target", "[edit distance]" )
 
             THEN( "edit distance is the same as source length" )
             {
-                REQUIRE( Util::editDistance( source, target ) == source.length() );
+                REQUIRE( ::layouter::Util::editDistance( source, target ) == source.length() );
             }
         }
 
@@ -52,7 +52,7 @@ SCENARIO( "empty source and/or target", "[edit distance]" )
 
             THEN( "edit distance is 0" )
             {
-                REQUIRE( Util::editDistance( source, target ) == 0 );
+                REQUIRE( ::layouter::Util::editDistance( source, target ) == 0 );
             }
         }
     }
@@ -67,7 +67,7 @@ SCENARIO( "single operation needed", "[edit distance]" )
 
         THEN( "only substitution is needed" )
         {
-            REQUIRE( Util::editDistance( source, target ) == 1 );
+            REQUIRE( ::layouter::Util::editDistance( source, target ) == 1 );
         }
     }
 
@@ -78,7 +78,7 @@ SCENARIO( "single operation needed", "[edit distance]" )
 
         THEN( "only deletion is needed" )
         {
-            REQUIRE( Util::editDistance( source, target ) == 1 );
+            REQUIRE( ::layouter::Util::editDistance( source, target ) == 1 );
         }
     }
 
@@ -89,7 +89,7 @@ SCENARIO( "single operation needed", "[edit distance]" )
 
         THEN( "only insertion is needed" )
         {
-            REQUIRE( Util::editDistance( source, target ) == 1);
+            REQUIRE( ::layouter::Util::editDistance( source, target ) == 1);
         }
     }
 }
@@ -104,7 +104,7 @@ TEST_CASE( "source and target have common prefix", "[edit distance]" )
         std::string const & sourceSubstr{ source.substr( 4 ) };
         std::string const & targetSubstr{ target.substr( 4 ) };
 
-        REQUIRE( Util::editDistance( source, target ) == Util::editDistance( sourceSubstr, targetSubstr ) );
+        REQUIRE( ::layouter::Util::editDistance( source, target ) == ::layouter::Util::editDistance( sourceSubstr, targetSubstr ) );
     }
 }
 
@@ -112,51 +112,51 @@ TEST_CASE( "arbitrary source and target", "[edit distance]" )
 {
     /* Ground truth: https://planetcalc.com/1721/ */
 
-    REQUIRE( Util::editDistance< std::string >( "brown", "green" ) == 3 );
-    REQUIRE( Util::editDistance< std::string >( "trainee", "brown" ) == 5 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "brown", "green" ) == 3 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "trainee", "brown" ) == 5 );
 
-    REQUIRE( Util::editDistance< std::string >( "id126u1CNWtboe1UQisM", "euw2hZELHcw1OPx" ) == 18 );
-    REQUIRE( Util::editDistance< std::string >( "gsO2SFi43yhRu4THn33z", "aHe5fCJwMWP6DAfqaq0p" ) == 20 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "id126u1CNWtboe1UQisM", "euw2hZELHcw1OPx" ) == 18 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "gsO2SFi43yhRu4THn33z", "aHe5fCJwMWP6DAfqaq0p" ) == 20 );
 
-    REQUIRE( Util::editDistance< std::string >( "ab", "a\nb" ) == 1 );
-    REQUIRE( Util::editDistance< std::string >( "abcdefg", "abc\nd\nefg" ) == 2 );
-    REQUIRE( Util::editDistance< std::string >( "abc\ndefg", "abc\nd\nefg" ) == 1 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "ab", "a\nb" ) == 1 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "abcdefg", "abc\nd\nefg" ) == 2 );
+    REQUIRE( ::layouter::Util::editDistance< std::string >( "abc\ndefg", "abc\nd\nefg" ) == 1 );
 }
 
 TEST_CASE( "worst case edit distance", "[worst case edit distance]" )
 {
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "efg" ) == 3 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "efg", "ab" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "ab", "efg" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "efg", "ab" ) == 3 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "", "ab" ) == 2 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "ab", "" ) == 2 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "abc" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abc", "abc" ) == 3 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "efg" ) == 3 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "efg", "abc" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abc", "efg" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "efg", "abc" ) == 3 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "efgabc" ) == 6 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "efgabc", "abc" ) == 6 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abc", "efgabc" ) == 6 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "efgabc", "abc" ) == 6 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "e" ) == 3 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "e", "abc" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abc", "e" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "e", "abc" ) == 3 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abc", "a" ) == 3 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "abc" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abc", "a" ) == 3 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "a", "abc" ) == 3 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "a" ) == 1 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "a", "a" ) == 1 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "a", "" ) == 1 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "a" ) == 1 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "a", "" ) == 1 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "", "a" ) == 1 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "", "" ) == 0 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "", "" ) == 0 );
 
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "abcdef", "ghijkl" ) == 6 );
-    REQUIRE( Util::worstCaseEditDistance< std::string >( "ghijkl", "abcdef" ) == 6 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "abcdef", "ghijkl" ) == 6 );
+    REQUIRE( ::layouter::Util::worstCaseEditDistance< std::string >( "ghijkl", "abcdef" ) == 6 );
 }
 
 }

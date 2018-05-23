@@ -1,6 +1,7 @@
 #include <Layouter/Layouter.hpp>
 
 #include <DatasetReader.hpp>
+#include <Metric/EditDistanceMetric.hpp>
 #include <String.hpp>
 
 #include <cmdline.h>
@@ -28,13 +29,14 @@ void initializeCmdParser( cmdline::parser & parser )
     (
          "spacer",
          's',
-         "spacer type: none, avgcharwidth",
+         "spacer type: none, avgcharwidth, avgreldist",
          false,
          "none",
          cmdline::oneof< std::string >
          (
              "none",
-             "avgcharwidth"
+             "avgcharwidth",
+             "avgreldist"
          )
     );
 
@@ -63,6 +65,10 @@ layouter::SpacerVariant selectSpacer( std::string const & spacer )
     {
         return layouter::spacer::AvgCharWidthSpacerParameter{};
     }
+    else if ( spacer == "avgreldist" )
+    {
+        return layouter::spacer::AvgRelativeDistanceSpacerParameter{};
+    }
 
     return layouter::spacer::NoneSpacerParameter{};
 }
@@ -85,9 +91,9 @@ int main( int argc, char ** argv )
     layouter::AlignerVariant const & alignerVariant{ selectAligner( parser.get< std::string >( "aligner" ) ) };
     layouter::SpacerVariant  const & spacerVariant { selectSpacer ( parser.get< std::string >( "spacer"  ) ) };
 
-    layouter::DatasetInputs const & dataset
+    layouter::Dataset const & dataset
     {
-        layouter::Util::readInputs
+        layouter::Util::readDataset
         (
             parser.get< std::string >( "dataset" ),
             parser.get< std::string >( "use-case" ),
@@ -99,17 +105,19 @@ int main( int argc, char ** argv )
 
     for ( auto const & inputEntry : dataset )
     {
-        if ( !testCase.empty() && inputEntry.first != testCase )
+        if ( !testCase.empty() && std::get< 0 >( inputEntry ) != testCase )
         {
             continue;
         }
 
-        layouter::OcrResult const & layoutedResult{ layouter::layout( alignerVariant, spacerVariant, inputEntry.second ) };
+        layouter::OcrResult const & layoutedResult{ layouter::layout( alignerVariant, spacerVariant, std::get< 1 >( inputEntry ) ) };
 
         print( '-', 80, '\n' );
-        std::cout << inputEntry.first << '\n';
+        std::cout << std::get< 0 >( inputEntry ) << '\n';
         print( '-', 80, '\n' );
-        std::cout << layoutedResult.toString() << std::endl;
+        std::cout << layoutedResult.toString() << '\n';
+        print( '-', 80, '\n' );
+        std::cout << layouter::Metric::editDistance( layoutedResult.toString(), std::get< 2 >( inputEntry ) ) << '\n';
         print( '-', 80, '\n' );
     }
 

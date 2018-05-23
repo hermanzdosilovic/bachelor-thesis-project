@@ -4,7 +4,7 @@
 
 #include <vector>
 #include <string_view>
-#include <utility>
+#include <tuple>
 #include <map>
 
 namespace layouter
@@ -12,7 +12,7 @@ namespace layouter
 
 class OcrResult;
 
-using DataEntry = std::pair< OcrResult, wide_string >;
+using DataEntry = std::tuple< std::string, OcrResult, wide_string >;
 using Dataset   = std::vector< DataEntry >;
 
 using DatasetInputs  = std::map< std::string, OcrResult >;

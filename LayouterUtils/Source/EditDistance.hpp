@@ -6,7 +6,7 @@
 #include <cstddef>
 #include <cstdint>
 
-namespace test::layouter::Util
+namespace layouter::Util
 {
 
 template< typename StringType >
@@ -42,14 +42,14 @@ std::size_t editDistance( StringType const & source, StringType const & target )
         for ( std::size_t j{ 1 }; j < d.cols(); ++j )
         {
             d( i, j ) = std::min
-                        (
-                            std::min
-                            (
-                                d( i - 1, j     ) + deletionCost,
-                                d( i    , j - 1 ) + insertionCost
-                            ),
-                            d( i - 1, j - 1 ) + ( source[ i - 1 ] == target[ j - 1 ] ? 0 : substitutionCost )
-                        );
+            (
+                std::min
+                (
+                    d( i - 1, j     ) + deletionCost,
+                    d( i    , j - 1 ) + insertionCost
+                ),
+                d( i - 1, j - 1 ) + ( source[ i - 1 ] == target[ j - 1 ] ? 0 : substitutionCost )
+            );
         }
     }
 

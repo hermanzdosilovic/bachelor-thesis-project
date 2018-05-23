@@ -1,4 +1,4 @@
-#include "Matrix.hpp"
+#include <Matrix.hpp>
 
 #include <catch.hpp>
 
@@ -14,7 +14,7 @@ SCENARIO( "matrix can have arbitrary size", "[matrix]" )
         constexpr std::size_t rows{ 5 };
         constexpr std::size_t cols{ 3 };
 
-        Util::Matrix const m{ rows, cols };
+        ::layouter::Util::Matrix const m{ rows, cols };
 
         WHEN( "the size is checked" )
         {
@@ -34,7 +34,7 @@ SCENARIO( "inserting elements to matrix", "[matrix]" )
 {
     GIVEN( "matrix of doubles" )
     {
-        Util::Matrix m{ 3, 2 };
+        ::layouter::Util::Matrix m{ 3, 2 };
 
         WHEN( "element is inserted at position (0, 0)" )
         {

@@ -8,8 +8,6 @@
 
 #include <DatasetReader.hpp>
 
-#include <spdlog/spdlog.h>
-
 #include <algorithm>
 #include <limits>
 
@@ -26,12 +24,6 @@ Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const &
 template< typename AlignerType, typename SpacerType, typename Metric >
 Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const & spacerType, Metric && metric, ::layouter::Dataset const & dataset, float const desiredAccuracy )
 {
-    std::shared_ptr< spdlog::logger > console = spdlog::get( "spacer test" );
-    if ( console.get() == nullptr )
-    {
-        console = spdlog::stdout_color_mt( "spacer test" );
-    }
-
     float satisfactoryAccuracy{ 0.0f };
     float minAccuracy{ std::numeric_limits< float >::max() };
     float maxAccuracy{ std::numeric_limits< float >::min() };
@@ -39,8 +31,8 @@ Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const &
 
     for ( ::layouter::DataEntry const & dataEntry : dataset )
     {
-        ::layouter::OcrResult alignedResult{ ::layouter::aligner::align( alignerType, dataEntry.first ) };
-        float accuracy{ static_cast< float >( metric( ::layouter::spacer::space( spacerType, alignedResult ).toString(), dataEntry.second ) ) };
+        ::layouter::OcrResult alignedResult{ ::layouter::aligner::align( alignerType, std::get< 1 >( dataEntry ) ) };
+        float accuracy{ static_cast< float >( metric( ::layouter::spacer::space( spacerType, alignedResult ).toString(), std::get< 2 >( dataEntry ) ) ) };
         if ( accuracy >= desiredAccuracy )
         {
             satisfactoryAccuracy++;
@@ -53,12 +45,6 @@ Util::TestResult spacerTest( AlignerType const & alignerType, SpacerType const &
 
     satisfactoryAccuracy /= std::size( dataset );
     avgAccuracy          /= std::size( dataset );
-
-    console->info
-            (
-                    "satisfactoryAccuracy = {}; minAccuracy = {}; maxAccuracy = {}; avgAccuracy = {}",
-                    satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy
-            );
 
     return { satisfactoryAccuracy, minAccuracy, maxAccuracy, avgAccuracy };
 }

@@ -2,7 +2,7 @@
 
 #include "EditDistance.hpp"
 
-namespace test::layouter::Metric
+namespace layouter::Metric
 {
 
 template< typename StringType >

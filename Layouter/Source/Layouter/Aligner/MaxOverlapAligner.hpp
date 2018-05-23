@@ -25,8 +25,8 @@ public:
         overlapThreshold_{ overlapThreshold },
         overlapLookback_{ overlapLookback } {};
 
-    value_t     overlapThreshold_ = 0.1f;
-    std::size_t overlapLookback_  = 1;
+    value_t     overlapThreshold_{ 0.13f };
+    std::size_t overlapLookback_{ 1 };
 };
 
 OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const & ocrResult );

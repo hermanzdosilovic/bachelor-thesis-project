@@ -28,7 +28,7 @@ Dataset readDataset( std::string const & datasetPath, std::string const & useCas
         auto outputEntry{ outputs.find( inputEntry.first ) };
         if ( outputEntry != outputs.end() )
         {
-            dataset.emplace_back( inputEntry.second, outputEntry->second );
+            dataset.emplace_back( inputEntry.first, inputEntry.second, outputEntry->second );
         }
     }
 
@@ -126,8 +126,14 @@ DatasetOutputs readOutputs( std::string const & datasetPath, std::string const &
 
         std::string tmpLine;
         wide_string txtOutput;
+
+        txtOutput += static_cast< wide_string::value_type >( '\n' );
         while ( std::getline( txtOutputFile, tmpLine ) )
         {
+            if ( tmpLine.empty() )
+            {
+                continue;
+            }
             for ( auto c : tmpLine )
             {
                 txtOutput += static_cast< wide_string::value_type >( c );
