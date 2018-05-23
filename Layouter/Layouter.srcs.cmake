@@ -2,12 +2,14 @@ set( SOURCES "" )
 
 set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/Aligner.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/Aligner.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/MaxOverlapAligner.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Aligner/NoneAligner.hpp
 
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/Spacer.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/Spacer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgRelativeDistanceSpacer.cpp
