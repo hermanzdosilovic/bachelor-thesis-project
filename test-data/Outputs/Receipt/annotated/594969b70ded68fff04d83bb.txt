@@ -10,7 +10,7 @@ CHASE VISA
 ************5963
 Chip Read USD$ 144.56
 Appr No : 07121D Ref No : 145492
-Mode: Issuer 
+Mode: Issuer
 AID : A0000000031010
 TVR : 0000008000
 IAD : 06010A03A02002

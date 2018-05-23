@@ -11,7 +11,7 @@ Chk 3866 Aug07'17 02:17P Gst 0
 1 Pain Raisins 3.95
 XXXXXXXXXXXX3546
 mastercard 12.61
-Food 11 .90
+Food 11.90
 Tax 0.71
 Ttl Payment 12.61
 Thank you for choosing
