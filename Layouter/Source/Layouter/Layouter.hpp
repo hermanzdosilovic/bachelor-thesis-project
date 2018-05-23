@@ -1,12 +1,8 @@
 #pragma once
 
-#include "Aligner/MaxOverlapAligner.hpp"
-#include "Aligner/NoneAligner.hpp"
 #include "OcrResult.hpp"
-#include "Layouter/Spacer/AvgCharWidthSpacer.hpp"
-#include "Layouter/Spacer/AvgRelativeDistanceSpacer.hpp"
-#include "Layouter/Spacer/AvgCharCenterDistanceSpacer.hpp"
-#include "Spacer/NoneSpacer.hpp"
+#include "Aligner/Aligner.hpp"
+#include "Spacer/Spacer.hpp"
 
 #include <variant>
 

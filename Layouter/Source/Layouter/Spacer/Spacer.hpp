@@ -1,6 +1,8 @@
 #pragma once
 
+#include "AvgCharCenterDistanceSpacer.hpp"
 #include "AvgCharWidthSpacer.hpp"
+#include "AvgRelativeDistanceSpacer.hpp"
 #include "NoneSpacer.hpp"
 
 namespace layouter
