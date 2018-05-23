@@ -127,12 +127,16 @@ int main( int argc, char ** argv )
     float maxSpacerAccuracy{ std::numeric_limits< float >::min() };
     float avgSpacerAccuracy{ 0.0f };
 
+    std::size_t realDatasetSize{ 0 };
+
     for ( auto const & inputEntry : dataset )
     {
         if ( !testCase.empty() && std::get< 0 >( inputEntry ) != testCase )
         {
             continue;
         }
+
+        realDatasetSize++;
 
         layouter::wide_string const & expected{ std::get< 2 >( inputEntry ) };
         layouter::wide_string filtered;
@@ -172,7 +176,8 @@ int main( int argc, char ** argv )
         avgSpacerAccuracy += spacerAccuracy;
     }
 
-    avgSpacerAccuracy /= std::size( dataset );
+    avgAlignerAccuracy /= realDatasetSize;
+    avgSpacerAccuracy  /= realDatasetSize;
 
     print( '-', 80, '\n' );
     std::cout << "Results" << '\n';
