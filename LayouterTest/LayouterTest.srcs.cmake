@@ -10,9 +10,10 @@ set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Aligner/AlignerTest.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Aligner/MaxOverlapAlignerTest.cpp
 
-    ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Spacer/SpacerTest.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Spacer/AvgCharCenterDistanceSpacerTest.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Spacer/AvgCharWidthSpacerTest.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Spacer/AvgRelativeDistanceSpacerTest.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Test/Spacer/SpacerTest.hpp
 )
 
 source_group( "Source" FILES ${Source} )

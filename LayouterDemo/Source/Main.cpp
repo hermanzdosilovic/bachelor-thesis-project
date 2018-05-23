@@ -29,14 +29,15 @@ void initializeCmdParser( cmdline::parser & parser )
     (
          "spacer",
          's',
-         "spacer type: none, avgcharwidth, avgreldist",
+         "spacer type: none, avgcharwidth, avgreldist, avgcenterdist",
          false,
          "none",
          cmdline::oneof< std::string >
          (
              "none",
              "avgcharwidth",
-             "avgreldist"
+             "avgreldist",
+             "avgcenterdist"
          )
     );
 
@@ -68,6 +69,10 @@ layouter::SpacerVariant selectSpacer( std::string const & spacer )
     else if ( spacer == "avgreldist" )
     {
         return layouter::spacer::AvgRelativeDistanceSpacerParameter{};
+    }
+    else if ( spacer == "avgcenterdist" )
+    {
+        return layouter::spacer::AvgCharCenterDistanceSpacerParameter{};
     }
 
     return layouter::spacer::NoneSpacerParameter{};
@@ -111,14 +116,15 @@ int main( int argc, char ** argv )
         }
 
         layouter::OcrResult const & layoutedResult{ layouter::layout( alignerVariant, spacerVariant, std::get< 1 >( inputEntry ) ) };
+        auto const & layoutedString{ layoutedResult.toString() };
 
         print( '-', 80, '\n' );
-        std::cout << std::get< 0 >( inputEntry ) << '\n';
+        std::cout << "Test case: " << std::get< 0 >( inputEntry ) << '\n';
+        std::cout << "Accuracy : " << layouter::Metric::editDistance( layoutedString, std::get< 2 >( inputEntry ) ) << '\n';
         print( '-', 80, '\n' );
         std::cout << layoutedResult.toString() << '\n';
         print( '-', 80, '\n' );
-        std::cout << layouter::Metric::editDistance( layoutedResult.toString(), std::get< 2 >( inputEntry ) ) << '\n';
-        print( '-', 80, '\n' );
+        std::cout << '\n' << '\n' << '\n' << '\n';
     }
 
     return 0;

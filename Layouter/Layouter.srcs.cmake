@@ -12,6 +12,8 @@ set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharWidthSpacer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgRelativeDistanceSpacer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgRelativeDistanceSpacer.hpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharCenterDistanceSpacer.cpp
+    ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/AvgCharCenterDistanceSpacer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/NoneSpacer.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/Layouter/Spacer/NoneSpacer.hpp
 
