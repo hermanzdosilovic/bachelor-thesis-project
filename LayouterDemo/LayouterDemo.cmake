@@ -6,6 +6,8 @@ if( NOT TARGET LayouterDemo )
     include( ${CMAKE_CURRENT_LIST_DIR}/LayouterDemo.srcs.cmake )
 
     add_executable( LayouterDemo ${SOURCES} )
+    target_include_directories( LayouterDemo PRIVATE ${CMAKE_CURRENT_LIST_DIR}/cmdline )
+
     target_link_libraries( LayouterDemo PRIVATE Layouter LayouterUtils )
 
 endif( NOT TARGET LayouterDemo )

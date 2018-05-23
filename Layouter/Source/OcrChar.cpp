@@ -3,7 +3,7 @@
 namespace layouter
 {
 
-wide_string OcrChar::toString()
+wide_string OcrChar::toString() const
 {
     return { value_ };
 }

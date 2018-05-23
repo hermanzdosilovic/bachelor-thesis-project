@@ -5,7 +5,7 @@
 namespace layouter
 {
 
-wide_string OcrResult::toString()
+wide_string OcrResult::toString() const
 {
     std::basic_stringstream< wide_string::value_type > sstream;
 

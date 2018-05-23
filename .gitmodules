@@ -7,3 +7,6 @@
 [submodule "LayouterTest/Catch2"]
 	path = LayouterTest/Catch2
 	url = https://github.com/catchorg/Catch2.git
+[submodule "LayouterDemo/cmdline"]
+	path = LayouterDemo/cmdline
+	url = https://github.com/tanakh/cmdline.git

@@ -13,6 +13,11 @@ namespace layouter::Util
 
 Dataset readDataset( std::string const & datasetPath, std::string const & useCase, std::string const & model )
 {
+    if ( datasetPath.empty() )
+    {
+        return readDataset( useCase, model );
+    }
+
     std::map< std::string, OcrResult > inputs{ readInputs( datasetPath, useCase, model ) };
     std::map< std::string, wide_string > outputs{ readOutputs( datasetPath, useCase, model ) };
 
@@ -35,8 +40,13 @@ Dataset readDataset( std::string const & useCase, std::string const & model )
     return readDataset( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }
 
-std::map< std::string, OcrResult > readInputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
+DatasetInputs readInputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
 {
+    if ( datasetPath.empty() )
+    {
+        return readInputs( useCase, model );
+    }
+
     std::string const inputExtension{ "json" };
 
     std::string const useCaseModelInputPath{ datasetPath + "/Inputs/" + useCase + "/" + model };
@@ -76,13 +86,18 @@ std::map< std::string, OcrResult > readInputs( std::string const & datasetPath, 
     return inputs;
 }
 
-std::map< std::string, OcrResult > readInputs( std::string const & useCase, std::string const & model )
+DatasetInputs readInputs( std::string const & useCase, std::string const & model )
 {
     return readInputs( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }
 
-std::map< std::string, wide_string > readOutputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
+DatasetOutputs readOutputs( std::string const & datasetPath, std::string const & useCase, std::string const & model )
 {
+    if ( datasetPath.empty() )
+    {
+        return readOutputs( useCase, model );
+    }
+
     std::string const outputExtension{ "txt" };
 
     std::string const useCaseModelOutputPath{ datasetPath + "/Outputs/" + useCase + "/" + model };
@@ -130,7 +145,7 @@ std::map< std::string, wide_string > readOutputs( std::string const & datasetPat
     return outputs;
 }
 
-std::map< std::string, wide_string > readOutputs( std::string const & useCase, std::string const & model )
+DatasetOutputs readOutputs( std::string const & useCase, std::string const & model )
 {
     return readOutputs( std::filesystem::current_path().parent_path().string() + "/test-data", useCase, model );
 }

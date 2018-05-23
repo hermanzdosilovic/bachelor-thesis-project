@@ -16,7 +16,7 @@ public:
 
     OcrResult() = default;
 
-    wide_string toString();
+    wide_string toString() const;
 
     Lines lines_;
 };

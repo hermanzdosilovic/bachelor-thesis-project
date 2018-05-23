@@ -25,7 +25,7 @@ public:
         width_{ width },
         height_{ height } {};
 
-    wide_string toString();
+    wide_string toString() const;
 
     wide_char value_;
     value_t   x_;
