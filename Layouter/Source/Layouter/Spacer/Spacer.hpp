@@ -19,10 +19,14 @@ using SpacerVariant = std::variant
                spacer::AvgCharCenterDistanceSpacerParameter
        >;
 
+using CompositeSpacerVariant = std::variant< SpacerVariant, std::vector< SpacerVariant > >;
+
 namespace spacer
 {
 
 OcrResult space( SpacerVariant const & spacerVariant, OcrResult const & ocrResult );
+OcrResult space( CompositeSpacerVariant const & compositeSpacerVariant, OcrResult const & ocrResult );
+OcrResult space( std::vector< SpacerVariant > const & spacerVariants, OcrResult const & ocrResult );
 
 template< typename SpacerType >
 OcrResult space( SpacerType const & spacerType, OcrResult const & ocrResult )

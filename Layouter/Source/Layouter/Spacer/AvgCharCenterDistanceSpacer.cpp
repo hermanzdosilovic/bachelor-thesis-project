@@ -50,6 +50,15 @@ OcrResult space( AvgCharCenterDistanceSpacerParameter const & parameter, OcrResu
             std::advance( prevCharIt, 1 ), std::advance( nextCharIt, 1 )
         )
         {
+            if
+            (
+                prevCharIt->value_ == static_cast< wide_char >( ' ' ) ||
+                nextCharIt->value_ == static_cast< wide_char >( ' ' )
+            )
+            {
+                continue;
+            }
+
             value_t const distance{ distanceFunction( *prevCharIt, *nextCharIt ) };
 
             if ( distance > avgCenterDistance * parameter.avgCenterDistanceThreshold_ )

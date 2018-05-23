@@ -29,6 +29,15 @@ OcrResult space( AvgCharWidthSpacerParameter const & parameter, OcrResult const 
             std::advance( prevCharIt, 1 ), std::advance( nextCharIt, 1 )
         )
         {
+            if
+            (
+                prevCharIt->value_ == static_cast< wide_char >( ' ' ) ||
+                nextCharIt->value_ == static_cast< wide_char >( ' ' )
+            )
+            {
+                continue;
+            }
+
             value_t const distance{ nextCharIt->x_ - ( prevCharIt->x_ + prevCharIt->width_ ) };
             if ( distance > newWordThreshold )
             {

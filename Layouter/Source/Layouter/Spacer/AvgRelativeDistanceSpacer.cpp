@@ -55,6 +55,15 @@ OcrResult space( AvgRelativeDistanceSpacerParameter const & parameter, OcrResult
             std::advance( prevCharIt, 1 ), std::advance( nextCharIt, 1 )
         )
         {
+            if
+            (
+                prevCharIt->value_ == static_cast< wide_char >( ' ' ) ||
+                nextCharIt->value_ == static_cast< wide_char >( ' ' )
+            )
+            {
+                continue;
+            }
+
             value_t const distance{ distanceFunction( *prevCharIt, *nextCharIt ) };
             value_t const avgRelativeDistance
             {
