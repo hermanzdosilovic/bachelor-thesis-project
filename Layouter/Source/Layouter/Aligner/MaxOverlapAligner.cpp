@@ -5,6 +5,7 @@
 
 #include <algorithm>
 #include <cstddef>
+#include <cmath>
 
 namespace layouter::aligner
 {
@@ -69,11 +70,14 @@ OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const &
                 numChecks--;
             }
 
-            if
-            (
-                lineOverlap > maxOverlap ||
-                ( pMaxOverlapLine != nullptr && pMaxOverlapLine->back().x_ < line.back().x_ && lineOverlap > maxOverlap * 0.50f )
-            )
+            value_t dynamicParameter{ 1.0f };
+            if ( pMaxOverlapLine != nullptr && pMaxOverlapLine->back().x_ < line.back().x_ )
+            {
+                value_t normalizedDistance{ std::abs( pMaxOverlapLine->back().x_ - line.back().x_ ) / std::min( pMaxOverlapLine->back().width_, line.back().width_ ) };
+                dynamicParameter = 3.0f / normalizedDistance;
+            }
+
+            if ( lineOverlap > maxOverlap || lineOverlap > maxOverlap * dynamicParameter )
             {
                 maxOverlap      = lineOverlap;
                 pMaxOverlapLine = &line;
