@@ -70,14 +70,30 @@ OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const &
                 numChecks--;
             }
 
+            constexpr value_t c1{ 0.13f };
+            constexpr value_t c2{ 0.13f };
+
             value_t dynamicParameter{ 1.0f };
-            if ( pMaxOverlapLine != nullptr && pMaxOverlapLine->back().x_ < line.back().x_ )
+            if ( pMaxOverlapLine != nullptr )
             {
-                value_t normalizedDistance{ std::abs( pMaxOverlapLine->back().x_ - line.back().x_ ) / std::min( pMaxOverlapLine->back().width_, line.back().width_ ) };
-                dynamicParameter = 3.0f / normalizedDistance;
+                value_t const prevCenter{ pMaxOverlapLine->back().x_ + pMaxOverlapLine->back().width_ / 2.0f };
+                value_t const nextCenter{ line.back().x_ + line.back().width_ / 2.0f };
+                value_t const normalizedDistance
+                {
+                    std::abs( prevCenter - nextCenter ) /
+                    std::min( pMaxOverlapLine->back().width_, line.back().width_ )
+                };
+                if ( prevCenter < nextCenter )
+                {
+                    dynamicParameter = 1.0f / ( 1.0f + c1 * normalizedDistance );
+                }
+                else
+                {
+                    dynamicParameter = 1.0f + ( c2 * normalizedDistance ) / ( 1.0f + c2 * normalizedDistance );
+                }
             }
 
-            if ( lineOverlap > maxOverlap || lineOverlap > maxOverlap * dynamicParameter )
+            if ( lineOverlap > maxOverlap * dynamicParameter )
             {
                 maxOverlap      = lineOverlap;
                 pMaxOverlapLine = &line;
