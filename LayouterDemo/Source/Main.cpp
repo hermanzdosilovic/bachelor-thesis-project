@@ -205,7 +205,8 @@ int main( int argc, char ** argv )
     print( '-', 80 );
     std::cout << "Results" << '\n';
     print( '-', 80 );
-    std::cout << "Min aligner accuracy | " << minAlignerAccuracy << '\n' <<
+    std::cout << "Dataset size         | " << realDatasetSize    << '\n' <<
+                 "Min aligner accuracy | " << minAlignerAccuracy << '\n' <<
                  "Max aligner accuracy | " << maxAlignerAccuracy << '\n' <<
                  "Avg aligner accuracy | " << avgAlignerAccuracy << '\n' <<
                  "                     | "                       << '\n' <<
