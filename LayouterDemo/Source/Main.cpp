@@ -216,12 +216,12 @@ int main( int argc, char ** argv )
     std::cout << '\n' << "Aligner Results:" << '\n';
     for ( std::uint8_t i{ static_cast< std::uint8_t >( std::floor( minAlignerAccuracy * 10.0f ) ) } ; i < 11; ++i )
     {
-        std::printf( "%3d%% >= %.5f\n", i * 10, alignerAccuracyResult[ i ] / realDatasetSize );
+        std::printf( "%3d%% >= %.2f\n", i * 10, alignerAccuracyResult[ i ] / realDatasetSize );
     }
     std::cout << '\n' << "Spacer Results:" << '\n';
     for ( std::uint8_t i{ static_cast< std::uint8_t >( std::floor( minSpacerAccuracy * 10.0f ) ) }; i < 11; ++i )
     {
-        std::printf( "%3d%% >= %.5f\n", i * 10, spacerAccuracyResult[ i ] / realDatasetSize );
+        std::printf( "%3d%% >= %.2f\n", i * 10, spacerAccuracyResult[ i ] / realDatasetSize );
     }
     print( '-', 80 );
 

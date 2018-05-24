@@ -69,7 +69,11 @@ OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const &
                 numChecks--;
             }
 
-            if ( lineOverlap > maxOverlap )
+            if
+            (
+                lineOverlap > maxOverlap ||
+                ( pMaxOverlapLine != nullptr && pMaxOverlapLine->back().x_ < line.back().x_ && lineOverlap > maxOverlap * 0.50f )
+            )
             {
                 maxOverlap      = lineOverlap;
                 pMaxOverlapLine = &line;
