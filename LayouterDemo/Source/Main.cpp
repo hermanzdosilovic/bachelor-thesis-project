@@ -3,6 +3,7 @@
 #include <DatasetReader.hpp>
 #include <Metric/EditDistanceMetric.hpp>
 #include <String.hpp>
+#include <Utf8.hpp>
 
 #include <cmdline.h>
 
@@ -172,7 +173,7 @@ int main( int argc, char ** argv )
             std::cout << "Aligner Accuracy | " << alignerAccuracy << '\n';
             std::cout << "Spacer Accuracy  | " << spacerAccuracy << '\n';
             print( '-', 80 );
-            std::cout << spacedString << '\n';
+            std::cout << layouter::Util::to_utf8( spacedString ) << '\n';
             print( '-', 80 );
             std::cout << '\n' << '\n' << '\n' << '\n';
         }
