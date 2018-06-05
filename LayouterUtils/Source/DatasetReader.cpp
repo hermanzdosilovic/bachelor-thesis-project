@@ -1,5 +1,6 @@
 #include "DatasetReader.hpp"
 #include "OcrResultSerializer.hpp"
+#include "Utf8.hpp"
 
 #include <OcrResult.hpp>
 
@@ -138,11 +139,7 @@ DatasetOutputs readOutputs( std::string const & datasetPath, std::string const &
             {
                 continue;
             }
-            for ( auto c : tmpLine )
-            {
-                txtOutput += static_cast< wide_string::value_type >( c );
-            }
-            txtOutput += static_cast< wide_string::value_type >( '\n' );
+            txtOutput += toFixedWidth( tmpLine ) + static_cast< wide_string::value_type >( '\n' );
         }
 
         outputs[ rawName ] = txtOutput;
