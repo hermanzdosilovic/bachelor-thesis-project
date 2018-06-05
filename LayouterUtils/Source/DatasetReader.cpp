@@ -26,10 +26,14 @@ Dataset readDataset( std::string const & datasetPath, std::string const & useCas
     for ( auto const & inputEntry : inputs )
     {
         auto outputEntry{ outputs.find( inputEntry.first ) };
+
+        wide_string s;
         if ( outputEntry != outputs.end() )
         {
-            dataset.emplace_back( inputEntry.first, inputEntry.second, outputEntry->second );
+            s = outputEntry->second;
         }
+
+        dataset.emplace_back( inputEntry.first, inputEntry.second, s );
     }
 
     return dataset;
@@ -56,7 +60,7 @@ DatasetInputs readInputs( std::string const & datasetPath, std::string const & u
     DIR * dir = opendir( useCaseModelInputPath.c_str() );
     struct dirent * dirEntry;
 
-    while ( ( dirEntry = readdir( dir ) ) != nullptr )
+    while ( dir != nullptr && ( dirEntry = readdir( dir ) ) != nullptr )
     {
         std::string const jsonInputFilename{ dirEntry->d_name };
         std::string::size_type const & jsonOffset{ jsonInputFilename.rfind( inputExtension ) };
@@ -107,7 +111,7 @@ DatasetOutputs readOutputs( std::string const & datasetPath, std::string const &
     DIR * dir = opendir( useCaseModelOutputPath.c_str() );
     struct dirent * dirEntry;
 
-    while ( ( dirEntry = readdir( dir ) ) != nullptr )
+    while ( dir != nullptr && ( dirEntry = readdir( dir ) ) != nullptr )
     {
         std::string const txtOutputFilename{ dirEntry->d_name };
         std::string::size_type const & txtOffset{ txtOutputFilename.rfind( outputExtension ) };
