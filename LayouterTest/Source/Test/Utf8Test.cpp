@@ -30,5 +30,18 @@ TEST_CASE( "fixed string to utf8 string test", "to_utf8 string test" )
     REQUIRE( ::layouter::Util::to_utf8( fixedString ) == u8"čardaš" );
 }
 
+TEST_CASE( "utf8 string to fixed width string test", "toFixedWidth test" )
+{
+    std::basic_string< char32_t > fixedString;
+    fixedString += static_cast< char32_t >( 269 );
+    fixedString += static_cast< char32_t >( 97  );
+    fixedString += static_cast< char32_t >( 114 );
+    fixedString += static_cast< char32_t >( 100 );
+    fixedString += static_cast< char32_t >( 97  );
+    fixedString += static_cast< char32_t >( 353 );
+
+    REQUIRE( ::layouter::Util::toFixedWidth( u8"čardaš" ) == fixedString );
+}
+
 }
 
