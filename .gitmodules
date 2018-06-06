@@ -1,3 +1,15 @@
 [submodule "LayouterUtils/Dependencies/petiteutf8"]
 	path = LayouterUtils/Dependencies/petiteutf8
 	url = https://github.com/hermanzdosilovic/petiteutf8.git
+[submodule "LayouterDemo/Dependencies/cmdline"]
+	path = LayouterDemo/Dependencies/cmdline
+	url = https://github.com/tanakh/cmdline.git
+[submodule "LayouterTest/Dependencies/Catch2"]
+	path = LayouterTest/Dependencies/Catch2
+	url = https://github.com/catchorg/Catch2.git
+[submodule "LayouterUtils/Dependencies/json"]
+	path = LayouterUtils/Dependencies/json
+	url = https://github.com/nlohmann/json.git
+[submodule "LayouterUtils/Dependencies/spdlog"]
+	path = LayouterUtils/Dependencies/spdlog
+	url = https://github.com/gabime/spdlog.git

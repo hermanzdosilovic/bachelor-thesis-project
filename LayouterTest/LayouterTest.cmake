@@ -9,6 +9,6 @@ if( NOT TARGET LayouterTest )
     target_link_libraries( LayouterTest PRIVATE Layouter LayouterUtils )
     target_include_directories( LayouterTest PRIVATE ${CMAKE_CURRENT_LIST_DIR}/Source )
 
-    target_include_directories( LayouterTest PRIVATE ${CMAKE_CURRENT_LIST_DIR}/Catch2/single_include )
+    target_include_directories( LayouterTest PRIVATE ${CMAKE_CURRENT_LIST_DIR}/Dependencies/Catch2/single_include )
 
 endif( NOT TARGET LayouterTest )
