@@ -40,15 +40,16 @@ std::string toUtf8( std::basic_string< char32_t > const & s )
 std::basic_string< char32_t > toFixedWidth( std::string const & utf8String )
 {
     std::basic_stringstream< char32_t > sstream;
+    std::string b = "a";
     for ( std::size_t i{ 0 }; i < utf8String.length(); )
     {
         char32_t c{ static_cast< unsigned char >( utf8String[ i ] ) };
-        if ( c < 0x80ul )
+        if ( ( c & 0x80ul ) == 0x0ul )
         {
             sstream << c;
             ++i;
         }
-        else if ( c < 0x800ul )
+        else if ( ( c & 0xE0ul ) == 0xC0ul )
         {
             sstream << static_cast< char32_t >
             (
@@ -57,7 +58,7 @@ std::basic_string< char32_t > toFixedWidth( std::string const & utf8String )
             );
             i += 2;
         }
-        else if ( c < 0x10000ul )
+        else if ( ( c & 0xF0ul ) == 0xE0ul )
         {
             sstream << static_cast< char32_t >
             (
