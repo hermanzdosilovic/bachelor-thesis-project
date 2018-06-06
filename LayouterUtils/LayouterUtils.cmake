@@ -9,6 +9,7 @@ if( NOT TARGET LayouterUtils )
 
     target_include_directories( LayouterUtils PRIVATE ${CMAKE_CURRENT_LIST_DIR}/json/include )
     target_include_directories( LayouterUtils PUBLIC  ${CMAKE_CURRENT_LIST_DIR}/spdlog/include )
+    target_include_directories( LayouterUtils PUBLIC  ${CMAKE_CURRENT_LIST_DIR}/Dependencies/petiteutf8/PetiteUtf8/Source )
 
     find_package( Threads )
 

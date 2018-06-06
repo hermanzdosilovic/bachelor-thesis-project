@@ -10,3 +10,6 @@
 [submodule "LayouterDemo/cmdline"]
 	path = LayouterDemo/cmdline
 	url = https://github.com/tanakh/cmdline.git
+[submodule "LayouterUtils/Dependencies/petiteutf8"]
+	path = LayouterUtils/Dependencies/petiteutf8
+	url = https://github.com/hermanzdosilovic/petiteutf8.git

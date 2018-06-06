@@ -1,10 +1,10 @@
 #include "String.hpp"
 
-#include <Utf8.hpp>
+#include <PetiteUtf8.hpp>
 
 std::ostream & operator<<( std::ostream & os, layouter::wide_string const & wideString )
 {
-    os << layouter::Util::toUtf8( wideString );
+    os << petiteutf8::utf8::encode< layouter::wide_string::value_type >( wideString );
     return os;
 }
 

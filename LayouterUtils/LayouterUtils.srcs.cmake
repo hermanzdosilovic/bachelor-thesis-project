@@ -9,8 +9,6 @@ set( Source
     ${CMAKE_CURRENT_LIST_DIR}/Source/OcrResultSerializer.hpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/String.cpp
     ${CMAKE_CURRENT_LIST_DIR}/Source/String.hpp
-    ${CMAKE_CURRENT_LIST_DIR}/Source/Utf8.cpp
-    ${CMAKE_CURRENT_LIST_DIR}/Source/Utf8.hpp
 
     ${CMAKE_CURRENT_LIST_DIR}/Source/Metric/EditDistanceMetric.hpp
 )
