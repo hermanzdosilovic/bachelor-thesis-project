@@ -1,4 +1,3 @@
-
 The standard off-line heuristics for bin packing order the objects by si
 shape and then insert them into bins. Typical insertion rules are (1) select the
 or leftmost bin the object fits in, (2) select the bin with the most room, (3) s

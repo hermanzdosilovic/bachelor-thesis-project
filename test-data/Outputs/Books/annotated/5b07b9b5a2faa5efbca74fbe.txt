@@ -1,4 +1,3 @@
-
 Simulating Evolution: Basics about Genetic Algorithms 9
 1.4.3 Mutation
 Mutations allow undirected jumps to slightly different areas of the search

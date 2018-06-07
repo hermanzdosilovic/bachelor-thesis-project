@@ -1,4 +1,3 @@
-
 South Loop SLP
 1101 S Canal Street
 Chicago
@@ -27,4 +26,3 @@ Total: $34.36
 Sold Items: 10
 Paid:
 Debit $34.36
-

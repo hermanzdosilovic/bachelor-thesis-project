@@ -1,4 +1,3 @@
-
 4.3 The Relevant Alleles Preserving Genetic Algorithm
 (RAPGA)
 Assuming generational replacement as the underlying replacement strategy

@@ -1,4 +1,3 @@
-
 During the day, the product is run in interactive mode to
 allow operators to add new members to ChocAn, to delete members
 who have resigned or suspend those whose dues are in arrears, and

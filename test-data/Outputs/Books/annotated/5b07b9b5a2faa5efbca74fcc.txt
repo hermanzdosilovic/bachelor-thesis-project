@@ -1,4 +1,3 @@
-
 Known Uses
 The Interpreter pattern is widely used in compilers implemented with object-
 oriented languages, as the Smalltalk compilers are. SPECTalk uses the pattern to

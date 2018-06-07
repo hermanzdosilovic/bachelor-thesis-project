@@ -1,4 +1,3 @@
-
 1.4 Genetic Operators
 In the following, the main genetic operators, na
 crossover, mutation, and replacement are to be descri

@@ -1,4 +1,3 @@
-
 Unfortunately, the formal proof that the circuit-satisfiability problem
 complete requires technical detail beyond the scope of this text. Instead,
 informally describe a proof that relies on a basic understanding of boolean

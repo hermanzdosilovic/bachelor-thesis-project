@@ -1,4 +1,3 @@
-
 TOTAL
 VISA ACCT 2949 4.32
 CHANGE .00
@@ -42,4 +41,3 @@ Queremos saber
 su opinión
 Participe en nuestro sorteo mensual de
 $3,000 dólares
-

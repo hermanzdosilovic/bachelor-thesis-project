@@ -1,4 +1,3 @@
-
 2 @ $2.49
 Produce
 DOLE BANANAS W 3.16 t F
@@ -22,4 +21,3 @@ Auth# 662926 Ref# 8005808878
 BALANCE DUE 50.43
 Cash $11.00
 CHANGE $0.31
-

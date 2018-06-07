@@ -1,4 +1,3 @@
-
 // da li se dodaje na početak?
 if (izaKojeq)
 {

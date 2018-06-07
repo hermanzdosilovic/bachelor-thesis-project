@@ -1,4 +1,3 @@
-
 Definirat ćemo funkciju SpritzerSort() kojoj kao parametre prosljeđujemo niz
 duljinu niza. Unutar funkcije SpritzerSort() poziva se standardna funkcija swap
 koja provodi zamjenu dva elementa niza:

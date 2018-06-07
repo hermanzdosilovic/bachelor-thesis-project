@@ -1,4 +1,3 @@
-
 more_choices = TRUE;
 do
 {

@@ -1,4 +1,3 @@
-
 Oakbridge Square
 3636 Harden Boulevard
 Lakeland, FL 33803
@@ -33,4 +32,3 @@ Sales Tax 0.00
 Grand Total 28.17
 Credit Payment 28.17
 Change 0.00
-

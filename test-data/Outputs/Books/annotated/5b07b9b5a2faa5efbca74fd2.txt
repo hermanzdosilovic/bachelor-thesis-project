@@ -1,4 +1,3 @@
-
 Formalne parametre NekiTip, Tip i Elem iz gornjih primjera treba shvatiti kao sim-
 boličke oznake za stvarne tipove koje će prevoditelj uvesti kada naiđe na poziv funkcije.
 Na primjer, ako ćemo funkciju Manji() pozvati za uspoređivanje cijelih brojeva, tada će

@@ -1,4 +1,3 @@
-
 Introduction
 Essentially, this book is about algorithmic developments in the context of
 genetic algorithms (GAs) and genetic programming (GP); we also describe

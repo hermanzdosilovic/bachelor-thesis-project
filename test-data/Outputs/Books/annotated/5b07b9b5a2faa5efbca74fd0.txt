@@ -1,4 +1,3 @@
-
 godoc -analysis=type
 between interfaces and concrete types.
 Like an envelope that wraps and conceals the letter it holds, an interface wraps and conceals

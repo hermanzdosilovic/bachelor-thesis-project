@@ -1,4 +1,3 @@
-
 The deferred function in Parse recovers from a panic, using the panic value to construct an
 error message; a fancier version might include the entire callstack using runtime.Stack. The
 deferred function then assigns to the err result, which is returned to the caller.

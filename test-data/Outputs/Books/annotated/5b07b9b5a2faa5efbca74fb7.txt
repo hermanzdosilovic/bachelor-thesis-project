@@ -1,4 +1,3 @@
-
 Figure 34.7 Three basic logic gates, with binary inputs and outputs. Under each gate is the truth
 table that describes the gate′s operation. (a) The NOT gate. (b) The AND gate. (c) The OR gate.
 example, the truth table for the OR gate tells us that when the inputs are x = 0

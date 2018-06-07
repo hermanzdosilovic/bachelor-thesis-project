@@ -1,4 +1,3 @@
-
 Meat
 HYV TRUE BNLS/SKNLS 5.14 t F
 HYV TRUE BNLS/SKNLS 4.93 t F
@@ -28,4 +27,3 @@ No purchase necessary to enter
 sweepstakes. See web site for official
 sweepstakes rules.
 *******************************************
-

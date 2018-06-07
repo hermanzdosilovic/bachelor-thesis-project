@@ -1,4 +1,3 @@
-
 Next, the date and time stamp on the executable load
 is compared to the stamps on every object file in that configur
 If the executable load image was created later than all the co

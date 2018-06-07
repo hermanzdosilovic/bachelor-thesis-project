@@ -1,4 +1,3 @@
-
 Overlapping subproblems
 The second ingredient that an optimization problem must have for dynamic pro-
 gramming to apply is that the space of subproblems must be ″small″ in the sense

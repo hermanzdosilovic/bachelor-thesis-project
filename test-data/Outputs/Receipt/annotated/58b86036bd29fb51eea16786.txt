@@ -1,4 +1,3 @@
-
 Medford MDF
 2151 Mystic Valley Parkway
 Medford
@@ -41,4 +40,3 @@ Master Card #RXXXXXXXXXXXX0314
 Auth # 03671P Exp Date **/**
 Lane # 202 Cashier #
 02/11/17 16:31 Ref/Seq # 202573
-

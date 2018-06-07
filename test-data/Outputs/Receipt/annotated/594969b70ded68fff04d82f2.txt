@@ -1,4 +1,3 @@
-
 MEAT
 OM SMKD TRKY 8Z 3.99 F
 BONUS BUY SAVINGS 0.49-F
@@ -41,6 +40,5 @@ PRICE YOU PAY 2.50
 Total Before Savings 160.88
 Your Savings 30.20
 Total After Savings 130.68
-TAX  2.16
+TAX 2.16
 **** BALANCE
-

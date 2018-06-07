@@ -1,4 +1,3 @@
-
 region_mgr_phone[0] = '(';
 printf ("3-digit region manager phone area coae? ");
 read_digits (buffer, 3);

@@ -1,4 +1,3 @@
-
 2.5 Reasoning About Efficiency
 Gross reasoning about an algorithm′s running time of is usually easy given a precise
 written description of the algorithm. In this section, I will work through several

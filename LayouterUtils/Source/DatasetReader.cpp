@@ -133,7 +133,6 @@ DatasetOutputs readOutputs( std::string const & datasetPath, std::string const &
         std::string tmpLine;
         wide_string txtOutput;
 
-        txtOutput += static_cast< wide_string::value_type >( '\n' );
         while ( std::getline( txtOutputFile, tmpLine ) )
         {
             if ( tmpLine.empty() )

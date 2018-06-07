@@ -1,4 +1,3 @@
-
 13.6. A dobitnik Oskara za najbolji spremnik je ...
 Iako svaki od navedenih tipova spremnika ima svoju primjenu, početnici/početniku (pa i
 naprednijim programerima) stvara veliku dilemu odabir spremnika za neku konkretnu

@@ -1,4 +1,3 @@
-
 • Do I really need an optimal tree? - Certain Steiner tree appli
 cuit design and communications networks) justify investing
 computation to find the best possible Steiner tree. This imp

@@ -1,4 +1,3 @@
-
 Food Service
 HV POTATO SALAD 4.99 T F
 Grocery
@@ -28,6 +27,5 @@ SAN SIMON CHARDONNAY 3.00 tx
 Tax Rate Taxable Amount Tax Amount
 Tax 1...1% 50.41 0.50
 Tax2...7.5 7.55 0.57
-Tax3...1.5 3.00 0.05   
+Tax3...1.5 3.00 0.05
 Total Tax:
-

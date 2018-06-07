@@ -1,4 +1,3 @@
-
 A summary report is given to the vice-president for accounts
 payable. The report lists every provider who was paid that week, the
 number of consultations each had, and his or her total fee for that

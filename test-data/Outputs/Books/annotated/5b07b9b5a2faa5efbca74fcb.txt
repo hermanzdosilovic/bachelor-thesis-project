@@ -1,4 +1,3 @@
-
 Sample Code
 The C++ code shown here sketches the implementation of the Command classes
 in the Motivation section. We′ll define OpenCommand, PasteCommand, and

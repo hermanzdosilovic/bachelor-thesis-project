@@ -1,4 +1,3 @@
-
 5.4. Errors
 Some functions always succeed at their task. For example, strings.Contains and str-
 conv.FormatBool have well-defined results for all possible argument value and cannot fail-

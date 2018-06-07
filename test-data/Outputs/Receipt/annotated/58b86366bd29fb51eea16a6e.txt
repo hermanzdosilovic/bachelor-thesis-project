@@ -1,4 +1,3 @@
-
 Sold Items: 9
 Paid:
 VISA $42.35
@@ -23,4 +22,3 @@ APPROVED BY ISSUER
 629010484208803202132017
 Thanks for shopping at Whole Foods Marke
 WholeFoodsMarket.com
-

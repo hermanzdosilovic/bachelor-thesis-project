@@ -1,4 +1,3 @@
-
 Once the rapid prototype is complete and has been ap-
 proved by the client and checked by the SQA group, a team will be
 set up to investigate the possible risks if the project were continued
