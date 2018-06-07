@@ -1,0 +1,16 @@
+
+godoc -analysis=type
+between interfaces and concrete types.
+Like an envelope that wraps and conceals the letter it holds, an interface wraps and conceals
+the concrete type and value that it holds. Only the methods revealed by the interface type may
+be called, even if the concrete type has others:
+os.Stdout.Write([]byte("hello")) // OK: *os.File has Write method
+os.Stdout.Close() // OK: *os.File has Close method
+var w io.Writer
+w = os.Stdout
+w.Write([]byte(‴hello″) // OK : io.Writer has Write method
+w.Close() // compile error : io.Writer lacks Close method
+An interface with more methods, such as io.ReadWriter, tells us more about the values it
+contains, and places greater demands on the types that implement it, than does an interface
+with fewer methods such as io.Reader. So what does the type interface{}, which has no
+methods at all, tell us about the concrete types that satisfy it?

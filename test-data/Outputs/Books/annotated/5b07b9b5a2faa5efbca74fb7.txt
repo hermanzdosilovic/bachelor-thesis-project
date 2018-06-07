@@ -1,0 +1,17 @@
+
+Figure 34.7 Three basic logic gates, with binary inputs and outputs. Under each gate is the truth
+table that describes the gate′s operation. (a) The NOT gate. (b) The AND gate. (c) The OR gate.
+example, the truth table for the OR gate tells us that when the inputs are x = 0
+and y = 1, the output value is z = 1. We use the symbols - to denote the NOT
+function, i to denote the AND function, and v to denote the OR function. Thus,
+for example, 0 v 1 = 1.
+We can generalize AND and OR gates to take more than two inputs. An AND
+gate′s output is 1 if all of its inputs are 1, and its output is 0 otherwise. An OR gate′s
+output is 1 if any of its inputs are 1, and its output is 0 otherwise.
+circuits, differing in only one gate. Part (a) of the figure also shows the values on
+the individual wires, given the input (x1 = 1, x2 = 1 , x3 = 0). Although a single
+wire may have no more than one combinational-element output connected to it, it
+can feed several element inputs. The number of element inputs fed by a wire is
+called the fan-out of the wire. If no element output is connected to a wire, the wire
+is a circuit input, accepting input values from an external source. If no element
+input is connected to a wire, the wire is a circuit output, providing the results of

@@ -1,0 +1,22 @@
+
+Definirat ćemo funkciju SpritzerSort() kojoj kao parametre prosljeđujemo niz
+duljinu niza. Unutar funkcije SpritzerSort() poziva se standardna funkcija swap
+koja provodi zamjenu dva elementa niza:
+template <typename Elem>
+void SpritzerSort (vector<Elem>& niz)
+{
+for (int i = niz.size() - 1 ; i > 0; --i)
+{
+bool zamjena = false;
+for (int j = 0; j < i; ++j)
+{
+if {niz [j + 1] < niz [j])
+{
+swap (niz[j], niz[j + 1]);
+zamjena = true;
+}
+}
+if (zamjena == false)
+break;
+}
+}

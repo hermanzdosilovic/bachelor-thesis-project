@@ -1,0 +1,16 @@
+
+Sample Code
+The C++ code shown here sketches the implementation of the Command classes
+in the Motivation section. We′ll define OpenCommand, PasteCommand, and
+MacroCommand. First the abstract Command class:
+class Command {
+public:
+virtual ~Command();
+virtual void Execute() = 0;
+protected:
+Command();
+};
+OpenCommand opens a document whose name is supplied by the user. An
+OpenCommand must be passed an Application object in its constructor.
+AskUser is an implementation routine that prompts the user for the name of
+the document to open.

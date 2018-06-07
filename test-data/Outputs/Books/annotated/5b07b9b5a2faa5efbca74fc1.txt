@@ -1,0 +1,9 @@
+
+1.4 Genetic Operators
+In the following, the main genetic operators, na
+crossover, mutation, and replacement are to be descri
+lies on a functional description of the principles rather
+overview of operator concepts; for more details abou
+interested reader is referred to textbooks as for exam
+1.4.1 Models for Parent Selection
+In genetic algorithms a fitness function assigns

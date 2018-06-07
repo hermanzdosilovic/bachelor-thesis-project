@@ -1,0 +1,14 @@
+
+Once the rapid prototype is complete and has been ap-
+proved by the client and checked by the SQA group, a team will be
+set up to investigate the possible risks if the project were continued
+as well as how to minimize those risks. If this second team reports
+that there are now serious risks that cannot be resolved, such as that
+the resulting product may not be cost-effective, then the project will
+immediately be terminated. But if all risks can be satisfactorily
+resolved, management will proceed with the project confident that
+the necessary precautions will have been taken to minimize all the
+risks that have so far been identified. The decision will therefore be
+made to proceed with the specification phase and thereafter to
+perform a further round of risk analysis before making the decision
+whether to commit recources to the planning phase.

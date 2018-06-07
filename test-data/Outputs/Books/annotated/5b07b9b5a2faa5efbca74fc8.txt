@@ -1,0 +1,18 @@
+
+region_mgr_phone[0] = '(';
+printf ("3-digit region manager phone area coae? ");
+read_digits (buffer, 3);
+for (j = 0; j < 3; j++)
+region_mgr_phone[1 + j] = buffer[j];
+region_mgr_phone[4] = ')';
+printf ("\n");
+printf ("7-digit region manager phone number? ");
+read_digits (buffer, 7);
+fof (j = 0; j < 3; j++)
+region_mgr_phone[5 + j] = buffer[j];
+region_mgr_phone[8] = '-';
+for (j = 0; j < 4; j++)
+region_mgr_phone[9 + j] = buffer[3 + j];
+region_mgr_phone[PHONE_LENGTH] =TERMINATOR;
+printf ("\n");
+} /* redd_region_mgr_phone */

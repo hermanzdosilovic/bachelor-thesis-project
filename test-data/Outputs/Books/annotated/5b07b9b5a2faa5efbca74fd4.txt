@@ -1,0 +1,27 @@
+
+// da li se dodaje na početak?
+if (izaKojeq)
+{
+// ne dodaje se na početak.
+// da li se dodaje na kraj?
+if /izaKojeg->Sljedeci())
+// ne dodaje se na kraj
+izaKojeg->Sljedeci()->StaviPrethodni(element);
+else
+// dodaje se na kraj
+rep = element;
+element->StaviSljedeci(izaKojeg->Sljedeci());
+izaKojeg->StaviSljedeci(element);
+}
+else
+{
+// dodaje se na početak
+element->StaviSljedeci(glava);
+if (glava)
+// da li već ima članova u listi?
+glava->StaviPrethodni(element);
+glava = element;
+}
+element->StaviPrethodni(izaKojeg);
+++duljina;
+}

@@ -1,0 +1,18 @@
+
+• Do I really need an optimal tree? - Certain Steiner tree appli
+cuit design and communications networks) justify investing
+computation to find the best possible Steiner tree. This imp
+search technique such as backtracking or branch-and-boun
+opportunities for pruning search based on geometric and gr
+straints.
+Still, Steiner tree remains a hard problem. We recomm
+with the implementations described below before attemp
+• How can I reconstruct Steiner vertices I never knew abo
+type of Steiner tree arises in classification and evolutio
+illustrates the relative similarity between different obj
+object represents (typically) a leaf/terminal vertex of
+mediate vertices representing branching points betwe
+For example, an evolutionary tree of animal species mi
+human, dog, snake and internal nodes corresponding t
+mal, reptile). A tree rooted at animal with dog and
+mammal implies that humans are closer to dogs than

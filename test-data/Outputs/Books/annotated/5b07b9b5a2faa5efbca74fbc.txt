@@ -1,0 +1,10 @@
+
+2.5 Reasoning About Efficiency
+Gross reasoning about an algorithm′s running time of is usually easy given a precise
+written description of the algorithm. In this section, I will work through several
+examples, perhaps in greater detail than necessary.
+2.5.1 Selection Sort
+Here we analyze the selection sort algorithm, which repeatedly identifies the small-
+est remaining unsorted element and puts it at the end of the sorted portion of the
+array. An animation of selection sort in action appears in Figure 2.5, and the code
+is shown below:

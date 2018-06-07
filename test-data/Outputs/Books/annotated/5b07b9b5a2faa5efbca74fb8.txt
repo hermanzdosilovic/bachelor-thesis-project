@@ -1,0 +1,13 @@
+
+Chapter 34 NP-Completeness
+a. Formulate a related decision problem for the independent-set problem, a
+prove that it is NP-complete. (Hint: Reduce from the clique problem.)
+b. Suppose that you are given "black-box" a subroutine to solve the decision poob
+lem you defined in part (a). Give an algorithm to find an independent set of ma
+imum size. The running time of your algorithm should be polynomial in |V
+and |E|, counting queries to the black box as a single step.
+Although the independent-set decision problem is NP-complete, certain speci
+cases are polynomial-time solvable.
+c. Give an efficient algorithm to solve the independent-set problem when each ve
+tex in G has degree 2. Analyze the running time, and prove that your algorith
+works correctly.

@@ -1,0 +1,9 @@
+
+During the day, the product is run in interactive mode to
+allow operators to add new members to ChocAn, to delete members
+who have resigned or suspend those whose dues are in arrears, and
+to update member records. Similarly, provider records are added,
+updated, and deleted.
+Your organization has been awarded the contract to write
+only the data-processing software for this system; another organiza-
+tion will be responsible for the communications software, for design-

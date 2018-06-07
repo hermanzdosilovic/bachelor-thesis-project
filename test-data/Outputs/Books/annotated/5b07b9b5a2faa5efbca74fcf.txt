@@ -1,0 +1,14 @@
+
+The deferred function in Parse recovers from a panic, using the panic value to construct an
+error message; a fancier version might include the entire callstack using runtime.Stack. The
+deferred function then assigns to the err result, which is returned to the caller.
+Recovering indiscriminately from panics is a dubious practice because the state of a package's
+variables after a panic is rarely well defined or documented. Perhaps a critical update to a data
+structure was incomplete, a file or network connection was opened but not closed, or a lock
+was acquired but not released. Furthermore, by replacing a crash with, say, a line in a log file,
+indiscriminate recovery may cause bugs to go unnoticed.
+Recovering from a panic within the same package can help simplify the handling of complex
+or unexpected errors, but as a general rule, you should not attempt to recover from another
+package's panic. Public APIs should report failures as errors. Similarly, you should not
+recover from a panic that may pass through a function you do not maintain, such as a caller-
+provided callback, since you cannot reason about its safety.

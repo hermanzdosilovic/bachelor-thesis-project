@@ -1,0 +1,13 @@
+
+The standard off-line heuristics for bin packing order the objects by si
+shape and then insert them into bins. Typical insertion rules are (1) select the
+or leftmost bin the object fits in, (2) select the bin with the most room, (3) s
+the bin that provides the tightest fit, or (4) select a random bin.
+Analytical and empirical results suggest that first-fit decreasing is the
+heuristic. Sort the objects in decreasing order of size, so that the biggest o
+is first and the smallest last. Insert each object one by one into the first bin
+has room for it. If no bin has room, we must start another bin. In the ca
+one-dimensional bin packing, this can never require more than 22% more bins
+necessary and usually does much better. First-fit decreasing has an intuitive a
+to it, for we pack the bulky objects first and hope that little objects can fill u
+cracks.

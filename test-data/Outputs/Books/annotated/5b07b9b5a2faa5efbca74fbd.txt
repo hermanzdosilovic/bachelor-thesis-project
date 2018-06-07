@@ -1,0 +1,15 @@
+
+1.6 War Story: Psychic Modeling
+The call came for me out of the blue as I sat in my office.
+″Professor Skiena, I hope you can help me. I′m the President of Lotto Systems
+Group Inc., and we need an algorithm for a problem arising in our latest product.″
+″Sure," I replied. After all, the dean of my engineering school is always encour-
+aging our faculty to interact more with industry.
+″At Lotto Systems Group, we market a program designed to improve our cus-
+tomers′ psychic ability to predict winning lottery numbers.1 In a standard lottery,
+each ticket consists of six numbers selected from, say, 1 to 44. Thus, any given
+ticket has only a very small chance of winning. However, after proper training, our
+clients can visualize, say, 15 numbers out of the 44 and be certain that at least four
+of them will be on the winning ticket. Are you with me so far?″
+″Probably not," I replied. But then I recalled how my dean encourages us to
+interact with industry.

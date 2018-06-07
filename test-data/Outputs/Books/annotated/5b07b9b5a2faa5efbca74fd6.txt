@@ -1,0 +1,15 @@
+
+15.2.3. Prioritetni red
+Klasa priority_queue (definirana u zaglavlju queue) implementira red kod
+elementi čitaju prema njihovom prioritetu. Naime, svakom se elementu pridruž
+ritet koji određuje redoslijed kojim će elementi pojaviti na vrhu reda.
+Funkcijskim članom push() element se umeće ured, dok top() i pop() do
+odnosno uklanjaju sljedeći element. Međutim, sljedeći element ne mora biti
+koji je prvi umetnut - to je element s najvišim prioritetom. Podrazumijevano se e
+sortiraju po rastućim vrijednostima, tako da će najveći element imati najviši
+Zbog toga ćemo izvođenjem sljedećih naredbi:
+priority_queue<int> brojevi;
+// umetnimo tri elementa
+brojevi.push(2);
+brojevi.push(4);
+brojevi.push(3);

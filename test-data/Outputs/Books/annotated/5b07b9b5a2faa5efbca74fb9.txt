@@ -1,0 +1,17 @@
+
+it Distance by Recursion
+e a recursive algorithm using the observation that the last character in
+st either be matched, substituted, inserted, or deleted. Chopping off
+s involved in this last edit operation leaves a pair of smaller strings.
+e the last character of the relevant prefix of P and T, respectively.
+ee pairs of shorter strings after the last operation, corresponding to
+ter a match/substitution, insertion, or deletion. If we knew the cost
+se three pairs of smaller strings, we could decide which option leads
+olution ann choose that option accordingly. We can learn this cost
+agic of recursion.
+isely, let D[i,j] be the minimum number of differences between
+and the segment of T ending at j. D[i,j] is the minimum of the
+ways to extend smaller string:
+Tj), then D[i-1,j-1], else D[i-1,j-1]+1. This means we either
+r substitute the ith and jth characters, depending upon whether the
+acters are the same.

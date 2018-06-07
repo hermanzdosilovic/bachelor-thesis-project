@@ -1,0 +1,10 @@
+
+Next, the date and time stamp on the executable load
+is compared to the stamps on every object file in that configur
+If the executable load image was created later than all the co
+nent object files, then there is no need to relink. But if an objec
+has a date and time stamp later than that of the load image,
+that load image does not incorporate the current version o
+corresponding object file. In this case, make will call the linke
+construct an updated load image incorporatingthe current ve
+of every object file.

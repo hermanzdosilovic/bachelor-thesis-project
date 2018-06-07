@@ -1,0 +1,25 @@
+
+more_choices = TRUE;
+do
+{
+/*
+* Display the menu, then solicit the user's selection.
+*/
+display_menu ();
+printf ("Specify choice (1-9, 0 to quit): ");
+/*
+* Ensure that user's response is an integer between 0 and 9
+*/
+read_digits (response, 1);
+printf ("\n") ;
+choice = atoi (response);
+switch (choice)
+{
+case 1:
+input_new_region_record ();
+break;
+case 2:
+input_new_shop_record ();
+break;
+case 3:
+update_region_record ();

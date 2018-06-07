@@ -1,0 +1,9 @@
+
+Formalne parametre NekiTip, Tip i Elem iz gornjih primjera treba shvatiti kao sim-
+boličke oznake za stvarne tipove koje će prevoditelj uvesti kada naiđe na poziv funkcije.
+Na primjer, ako ćemo funkciju Manji() pozvati za uspoređivanje cijelih brojeva, tada će
+parametar NekiTip poprimiti vrijednost int, a ako ćemo uspoređivati cipele po veličini
+(opisane klasom Cipela) parametar NekiTip će poprimiti vrijednost Cipela.
+Iza ključne riječi template i liste formalnih parametara navodi se ili deklaracija ili
+definicija funkcije. Prilikom pisanja definicije funkcije vrijede sva dosad navedena
+pravila jezika C++, s tom razlikom što se unutar deklaracije i definicije funkcije za na-

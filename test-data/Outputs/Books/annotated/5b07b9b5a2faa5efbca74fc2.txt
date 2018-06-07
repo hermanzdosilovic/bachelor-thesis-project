@@ -1,0 +1,13 @@
+
+4.3 The Relevant Alleles Preserving Genetic Algorithm
+(RAPGA)
+Assuming generational replacement as the underlying replacement strategy
+the most essential question at generation i is which parts of genetic infor-
+mation from generation i should be maintained in generation i+1 and how
+this could be done most effectively applying the available information (chro-
+mosomes and according fitness values) and the available genetic operators
+selection, crossover, and mutation.
+The here presented variant of enhanced algorithmic concepts based upon
+GA-solution manipulation operators aims to achieve this goal by trying to
+bring out as much progress from the actual generation as possible and losing
+as little genetic diversity as possible at the same time.

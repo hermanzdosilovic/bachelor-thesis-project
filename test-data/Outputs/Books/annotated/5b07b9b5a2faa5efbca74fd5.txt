@@ -1,0 +1,13 @@
+
+13.6. A dobitnik Oskara za najbolji spremnik je ...
+Iako svaki od navedenih tipova spremnika ima svoju primjenu, početnici/početniku (pa i
+naprednijim programerima) stvara veliku dilemu odabir spremnika za neku konkretnu
+situaciju. Srećom, budući da je sučelje preko kojeg se spremnici koriste većim dijelom
+jednako za sve vrste spremnika, naknadna zamjena spremnika ne bi trebala predstavljati
+problem, pogotovo ako se koristi samo minimalno sučelje zajedničko svim spremnici-
+ma.
+U većini slučajeva vector je prvi izbor kada se želi koristiti neki spremnik. Budući
+da su svi elementi složeni kontinuirano u memoriji, pristup bilo kojem elementuje vrlo
+brz. No prilikom korištenja vector-a treba biti svjestan i njegovih nedostataka. Zbog
+slijednog sloga, dodavanje i izbacivanje elemenata iz vektora iziskuje pomicanje svih
+elemenata iza mjesta na koje se element treba dodati ili s kojeg je element izbačen. Zato

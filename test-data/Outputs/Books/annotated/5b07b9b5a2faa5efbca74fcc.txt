@@ -1,0 +1,11 @@
+
+Known Uses
+The Interpreter pattern is widely used in compilers implemented with object-
+oriented languages, as the Smalltalk compilers are. SPECTalk uses the pattern to
+interpret descriptions of input file formats [Sza92]. The QOCA constraint-solving
+toolkit uses it to evaluate constraints [HHMV92].
+Considered in its most general form (i.e., an operation distributed over a class
+hierarchy based on the Composite pattern), nearly every use of the Composite
+pattern will also contain the Interpreter pattern. But the Interpreter pattern should
+be reserved for those cases in which you want to think of the class hierarchy as
+defining d language.

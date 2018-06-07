@@ -1,0 +1,11 @@
+
+• any original values in the receiver that can change as a result of handling
+the request. The receiver must provide operations that let the command
+return the receiver to its prior state.
+To support one level of undo, an application needs to store only the com-
+mand that was executed last. For multiple-level undo and redo, the applica-
+tion needs a history list of commands that have been executed, where the
+maximum length of the list determines the number of undo/redo levels. The
+history list stores sequences of commands that have been executed. Travers-
+ing backward through the list and reverse-executing commands cancels their
+effect; traversing forward and executing commands reexecutes them.

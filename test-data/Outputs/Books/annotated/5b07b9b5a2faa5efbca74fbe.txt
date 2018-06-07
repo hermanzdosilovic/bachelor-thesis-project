@@ -1,0 +1,17 @@
+
+Simulating Evolution: Basics about Genetic Algorithms 9
+1.4.3 Mutation
+Mutations allow undirected jumps to slightly different areas of the search
+space. The basic mutation operator for binary coded problems is bitwise
+mutation. Mutation occurs randomly and very rarely with a probability pm;
+typically, this mutation rate is than ten percent. In some cases mutation
+is interpreted as generating a new bit and in others it is interpreted as flipping
+the bit.
+In higher order alphabets, such as integer numbering formulations, muta-
+tion takes the form of replacing an allele with a randomly chosen value in the
+appropriate range with probability pm. However, for combinatorial optimiza-
+tion problems, such mutation schemes can cause difficulties with chromosome
+legality; for example, multiple copies of a given value can occur which might
+be illegal for some problems (including routing). Alternatives suggested in
+literature include pairwise swap and shift operations as for instance described
+in [Car94].

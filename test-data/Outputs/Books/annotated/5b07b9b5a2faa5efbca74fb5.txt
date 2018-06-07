@@ -1,0 +1,19 @@
+
+Overlapping subproblems
+The second ingredient that an optimization problem must have for dynamic pro-
+gramming to apply is that the space of subproblems must be ″small″ in the sense
+that a recursive algorithm for the problem solves the same subproblems over and
+over, rather than always generating new subproblems. Typically, the total number
+of distinct subproblems is a polynomial in the input size. When a recursive algo-
+rithm revisits the same problem repeatedly, we say that the optimization problem
+has overlapping subproblems.4 In contrast, a problem for which a divide-and-
+conquer approach is suitable usually generates brand-new problems at each step
+of the recursion. Dynamic-programming algorithms typically take advantage of
+overlapping subproblems by solving each subproblem once and then storing the
+solution in a table where it can be looked up when needed, using constant time per
+lookup.
+4It may seem strange that dynamic programming relies on subproblems being both independent
+and overlapping. Although these requirements may sound contradictory, they describe two different
+notions, rather than two points on the same axis. Two subproblems of the same problem are inde-
+pendent if they do not share resources. Two subproblems are overlapping if they are really the same
+subproblem that occurs as a subproblem of different problems.

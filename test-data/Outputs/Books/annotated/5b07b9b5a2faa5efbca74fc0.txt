@@ -1,0 +1,10 @@
+
+Introduction
+Essentially, this book is about algorithmic developments in the context of
+genetic algorithms (GAs) and genetic programming (GP); we also describe
+their applications to significant combinatorial optimization problems as well
+as structure identification using HeuristicLab as a platform for algorithm de-
+velopment. The main issue of the theoretical considerations is to obtain a
+better understanding of the basic workflow of GAs and GP, in order to estab-
+lish new bionic, problem independent theoretical concepts and to substantially
+increase the achievable solution quality.

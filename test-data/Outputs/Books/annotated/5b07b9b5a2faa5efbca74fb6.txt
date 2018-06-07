@@ -1,0 +1,10 @@
+
+Unfortunately, the formal proof that the circuit-satisfiability problem
+complete requires technical detail beyond the scope of this text. Instead,
+informally describe a proof that relies on a basic understanding of boolean
+national circuits.
+Boolean combinational circuits are built from boolean combinationale
+that are interconnected by wires. A boolean combinational element is any
+element that has a constant number ofboolean inputs and outputs and that pe
+a well-defined function. Boolean values are drawn from the set {0, 1},
+represents FALSE and 1 represents TRUE.

@@ -1,0 +1,12 @@
+
+5 / 9 * (F - 32)
+map[F:-40] => -40
+map[F:32] => 0
+map[F:212] => 100
+Fortunately the inputs so far have all been well formed, but our luck is unlikely to
+interpreted languages, it is common to check the syntax for static errors, that is,
+can be detected without running the program. By separating the static checks
+dynamic ones, we can detect errors sooner and perform many checks only once
+each time an expression is evaluated.
+Let′s add another method to the Expr interface. The Check method checks for
+an expression syntax tree. We′ll explain its vars parameter in a moment.

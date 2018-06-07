@@ -1,0 +1,10 @@
+
+5.4. Errors
+Some functions always succeed at their task. For example, strings.Contains and str-
+conv.FormatBool have well-defined results for all possible argument value and cannot fail-
+barring catastrophic and unpredictable scenarios like running out of memory, where the
+symptom is far from the cause and from which there's little hope of recovery.
+Other functions always succeed so long as their preconditions are met. For example, the
+time.Date function always constructs a time.Time from its components-year, month, and
+so on-unless the last argument (the time zone) is nil, in which case it panics. This panic is a
+sure sign of a bug in the calling code and should never happen in a well-written program.
