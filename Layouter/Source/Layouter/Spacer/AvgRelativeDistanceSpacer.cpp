@@ -42,6 +42,8 @@ OcrResult space( AvgRelativeDistanceSpacerParameter const & parameter, OcrResult
             {
                 charMeasureCountTable [ rightChar.value_ ]++;
                 charTotalDistanceTable[ rightChar.value_ ] += horizontalDistance;
+                charMeasureCountTable [ leftChar.value_ ]++;
+                charTotalDistanceTable[ leftChar.value_ ] += horizontalDistance;
             }
         }
     }
@@ -65,12 +67,20 @@ OcrResult space( AvgRelativeDistanceSpacerParameter const & parameter, OcrResult
             }
 
             value_t const distance{ distanceFunction( *prevCharIt, *nextCharIt ) };
-            value_t const avgRelativeDistance
+            value_t const nextAvgRelativeDistance
             {
                 charTotalDistanceTable[ nextCharIt->value_ ] / std::max( charMeasureCountTable[ nextCharIt->value_ ], static_cast< std::size_t >( 1 ) )
             };
+            value_t const prevAvgRelativeDistance
+            {
+                charTotalDistanceTable[ prevCharIt->value_ ] / std::max( charMeasureCountTable[ prevCharIt->value_ ], static_cast< std::size_t >( 1 ) )
+            };
 
-            if ( distance > avgRelativeDistance * parameter.relativeDistanceThreshold_ )
+            if
+            (
+                distance > nextAvgRelativeDistance * parameter.relativeDistanceThreshold_ ||
+                distance > prevAvgRelativeDistance * parameter.relativeDistanceThreshold_
+            )
             {
                 prevCharIt = line.emplace
                         (

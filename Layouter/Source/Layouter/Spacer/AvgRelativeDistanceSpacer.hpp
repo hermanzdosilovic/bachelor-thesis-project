@@ -23,8 +23,8 @@ public:
         horizontalThreshold_{ horizontalThreshold },
         relativeDistanceThreshold_{ relativeDistanceThreshold } {};
 
-    value_t horizontalThreshold_{ 3.0f };
-    value_t relativeDistanceThreshold_{ 1.1f };
+    value_t horizontalThreshold_{ 4.0f };
+    value_t relativeDistanceThreshold_{ 1.2f };
 };
 
 OcrResult space( AvgRelativeDistanceSpacerParameter const & parameter, OcrResult const & ocrResult );
