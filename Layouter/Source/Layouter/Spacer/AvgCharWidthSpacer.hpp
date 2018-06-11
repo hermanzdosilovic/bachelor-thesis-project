@@ -21,7 +21,7 @@ public:
     ) :
         avgCharWidthThreshold_{ avgCharWidthThreshold } {};
 
-    value_t avgCharWidthThreshold_ = 0.44f;
+    value_t avgCharWidthThreshold_ = 0.8f;
 };
 
 OcrResult space( AvgCharWidthSpacerParameter const & parameter, OcrResult const & ocrResult );
