@@ -1,3 +1,5 @@
+#include "Statistics.hpp"
+
 #include <Layouter/Layouter.hpp>
 
 #include <DatasetReader.hpp>
@@ -6,10 +8,14 @@
 
 #include <cmdline.h>
 
+#ifdef LAYOUTERDEMO_USE_MATPLOTLIB
+#include <matplotlibcpp.h>
+#endif
+
 #include <iostream>
 #include <string>
 #include <vector>
-#include <limits>
+#include <algorithm>
 #include <cmath>
 
 void initializeCmdParser( cmdline::parser & parser )
@@ -103,37 +109,33 @@ void print( char const c, std::size_t const n, char const e = '\n' )
 
 int main( int argc, char ** argv )
 {
+
     cmdline::parser parser;
     initializeCmdParser( parser );
     parser.parse_check( argc, argv );
 
-    layouter::AlignerVariant const & alignerVariant{ selectAligner( parser.get< std::string >( "aligner" ) ) };
-    layouter::CompositeSpacerVariant const & spacerVariant{ selectSpacer ( parser.get< std::string >( "spacer" ) ) };
+    std::string const & useCase{ parser.get< std::string >( "use-case" ) };
+    std::string const & model  { parser.get< std::string >( "model"    ) };
+    std::string const & aligner{ parser.get< std::string >( "aligner"  ) };
+    std::string const & spacer { parser.get< std::string >( "spacer"   ) };
+
+    layouter::AlignerVariant const & alignerVariant{ selectAligner( aligner ) };
+    layouter::CompositeSpacerVariant const & spacerVariant{ selectSpacer ( spacer ) };
 
     layouter::Dataset const & dataset
     {
         layouter::Util::readDataset
         (
             parser.get< std::string >( "dataset" ),
-            parser.get< std::string >( "use-case" ),
-            parser.get< std::string >( "model" )
+            useCase,
+            model
         )
     };
 
     std::string const & testCase{ parser.get< std::string >( "test-case" ) };
 
-    float minAlignerAccuracy{ std::numeric_limits< float >::max() };
-    float maxAlignerAccuracy{ std::numeric_limits< float >::min() };
-    float avgAlignerAccuracy{ 0.0f };
-
-    float minSpacerAccuracy{ std::numeric_limits< float >::max() };
-    float maxSpacerAccuracy{ std::numeric_limits< float >::min() };
-    float avgSpacerAccuracy{ 0.0f };
-
-    float alignerAccuracyResult[ 11 ] = { 0.0f };
-    float spacerAccuracyResult[ 11 ] = { 0.0f };
-
-    std::size_t realDatasetSize{ 0 };
+    std::vector< float > totalAlignerAccuracy;
+    std::vector< float > totalSpacerAccuracy;
 
     for ( auto const & inputEntry : dataset )
     {
@@ -141,8 +143,6 @@ int main( int argc, char ** argv )
         {
             continue;
         }
-
-        realDatasetSize++;
 
         layouter::wide_string const & expected{ std::get< 2 >( inputEntry ) };
         layouter::wide_string filtered;
@@ -177,54 +177,53 @@ int main( int argc, char ** argv )
             std::cout << '\n' << '\n' << '\n' << '\n';
         }
 
-        minAlignerAccuracy = std::min( minAlignerAccuracy, alignerAccuracy );
-        maxAlignerAccuracy = std::max( maxAlignerAccuracy, alignerAccuracy );
-        avgAlignerAccuracy += alignerAccuracy;
-
-        minSpacerAccuracy = std::min( minSpacerAccuracy, spacerAccuracy );
-        maxSpacerAccuracy = std::max( maxSpacerAccuracy, spacerAccuracy );
-        avgSpacerAccuracy += spacerAccuracy;
-
-        std::uint8_t const alignerRoundAccuracy{ static_cast< std::uint8_t >( std::floor( alignerAccuracy * 10.0f ) ) };
-        std::uint8_t const spacerRoundAccuracy{ static_cast< std::uint8_t >( std::floor( spacerAccuracy * 10.0f ) ) };
-
-        for ( std::uint8_t i{ 0 }; i <= alignerRoundAccuracy; ++i )
-        {
-            alignerAccuracyResult[ i ]++;
-        }
-
-        for ( std::uint8_t i{ 0 }; i <= spacerRoundAccuracy; ++i )
-        {
-            spacerAccuracyResult[ i ]++;
-        }
+        totalAlignerAccuracy.push_back( alignerAccuracy );
+        totalSpacerAccuracy.push_back( spacerAccuracy );
     }
 
-    avgAlignerAccuracy /= realDatasetSize;
-    avgSpacerAccuracy  /= realDatasetSize;
+    std::sort( totalAlignerAccuracy.begin(), totalAlignerAccuracy.end() );
+    std::sort( totalSpacerAccuracy.begin(), totalSpacerAccuracy.end() );
 
-    print( '-', 80 );
-    std::cout << "Results" << '\n';
-    print( '-', 80 );
-    std::cout << "Dataset size         | " << realDatasetSize    << '\n' <<
-                 "Min aligner accuracy | " << minAlignerAccuracy << '\n' <<
-                 "Max aligner accuracy | " << maxAlignerAccuracy << '\n' <<
-                 "Avg aligner accuracy | " << avgAlignerAccuracy << '\n' <<
-                 "                     | "                       << '\n' <<
-                 "Min spacer accuracy  | " << minSpacerAccuracy  << '\n' <<
-                 "Max spacer accuracy  | " << maxSpacerAccuracy  << '\n' <<
-                 "Avg spacer accuracy  | " << avgSpacerAccuracy  << '\n';
-
-    std::cout << '\n' << "Aligner Results:" << '\n';
-    for ( std::uint8_t i{ static_cast< std::uint8_t >( std::floor( minAlignerAccuracy * 10.0f ) ) } ; i < 11; ++i )
+    std::vector< float > alignerMedianVector;
+    float alignerMedian{ median( totalAlignerAccuracy ) };
+    for ( auto const & v : totalAlignerAccuracy )
     {
-        std::printf( "%3d%% >= %.2f\n", i * 10, alignerAccuracyResult[ i ] / realDatasetSize );
+        alignerMedianVector.push_back( alignerMedian );
     }
-    std::cout << '\n' << "Spacer Results:" << '\n';
-    for ( std::uint8_t i{ static_cast< std::uint8_t >( std::floor( minSpacerAccuracy * 10.0f ) ) }; i < 11; ++i )
+
+    std::vector< float > alignerMeanVector;
+    float alignerMean{ mean( totalAlignerAccuracy ) };
+    for ( auto const & v : totalAlignerAccuracy )
     {
-        std::printf( "%3d%% >= %.2f\n", i * 10, spacerAccuracyResult[ i ] / realDatasetSize );
+        alignerMeanVector.push_back( alignerMean );
     }
-    print( '-', 80 );
+
+    std::vector< float > spacerMedianVector;
+    float spacerMedian{ median( totalAlignerAccuracy ) };
+    for ( auto const & v : totalSpacerAccuracy )
+    {
+        spacerMedianVector.push_back( spacerMedian );
+    }
+
+    std::vector< float > spacerMeanVector;
+    float spacerMean{ mean( totalAlignerAccuracy ) };
+    for ( auto const & v : totalSpacerAccuracy )
+    {
+        spacerMeanVector.push_back( spacerMean );
+    }
+
+#ifdef LAYOUTERDEMO_USE_MATPLOTLIB
+    matplotlibcpp::figure_size(1200, 780);
+    matplotlibcpp::plot(totalSpacerAccuracy, "-");
+    matplotlibcpp::named_plot("median", spacerMedianVector, "--");
+    matplotlibcpp::named_plot("mean", spacerMeanVector, "--");
+    matplotlibcpp::grid(true);
+    matplotlibcpp::xlabel("example");
+    matplotlibcpp::ylabel("accuracy");
+    matplotlibcpp::legend();
+    matplotlibcpp::title( useCase + " | " + model + " | " + aligner + " | " + spacer );
+    matplotlibcpp::save("result.png");
+#endif
 
     return 0;
 }

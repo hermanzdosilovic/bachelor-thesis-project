@@ -13,3 +13,6 @@
 [submodule "LayouterUtils/Dependencies/spdlog"]
 	path = LayouterUtils/Dependencies/spdlog
 	url = https://github.com/gabime/spdlog.git
+[submodule "LayouterDemo/Dependencies/matplotlib-cpp"]
+	path = LayouterDemo/Dependencies/matplotlib-cpp
+	url = https://github.com/lava/matplotlib-cpp.git
