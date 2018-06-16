@@ -22,7 +22,7 @@ TEST_CASE( "max overlap aligner test on annotated Receipt", "[max overlap aligne
 
     Util::TestResult result = alignerTest
     (
-        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1 },
+        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1, 0.13f, 0.13f },
         [] ( ::layouter::wide_string const & source, ::layouter::wide_string const & target ) -> float
         {
             return ::layouter::Metric::editDistance( source, target );

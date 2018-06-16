@@ -16,3 +16,6 @@
 [submodule "LayouterDemo/Dependencies/matplotlib-cpp"]
 	path = LayouterDemo/Dependencies/matplotlib-cpp
 	url = https://github.com/lava/matplotlib-cpp.git
+[submodule "LayouterDemo/Dependencies/variadic_table"]
+	path = LayouterDemo/Dependencies/variadic_table
+	url = https://github.com/friedmud/variadic_table.git

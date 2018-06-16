@@ -21,7 +21,7 @@ TEST_CASE( "average relative distance spacer test on annotated Receipt", "[avera
 
     Util::TestResult result = spacerTest
     (
-        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1 },
+        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1, 0.13f, 0.13f },
         ::layouter::spacer::AvgRelativeDistanceSpacerParameter{ 3.0f, 1.1f },
         [] ( ::layouter::wide_string const & source, ::layouter::wide_string const & target ) -> float
         {

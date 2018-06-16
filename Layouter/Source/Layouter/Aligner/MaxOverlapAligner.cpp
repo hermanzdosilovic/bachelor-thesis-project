@@ -70,9 +70,6 @@ OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const &
                 numChecks--;
             }
 
-            constexpr value_t c1{ 0.13f };
-            constexpr value_t c2{ 0.13f };
-
             value_t dynamicParameter{ 1.0f };
             if ( pMaxOverlapLine != nullptr )
             {
@@ -85,11 +82,13 @@ OcrResult align( MaxOverlapAlignerParameter const & parameter, OcrResult const &
                 };
                 if ( pMaxOverlapLine->back().x_ < line.back().x_ )
                 {
-                    dynamicParameter = 1.0f / ( 1.0f + c1 * normalizedDistance );
+                    dynamicParameter = 1.0f / ( 1.0f + parameter.negativeWeight_ * normalizedDistance );
                 }
                 else
                 {
-                    dynamicParameter = 1.0f + ( c2 * normalizedDistance ) / ( 1.0f + c2 * normalizedDistance );
+                    dynamicParameter = 1.0f +
+                    ( parameter.positiveWeight_ * normalizedDistance ) /
+                    ( 1.0f + parameter.positiveWeight_ * normalizedDistance );
                 }
             }
 

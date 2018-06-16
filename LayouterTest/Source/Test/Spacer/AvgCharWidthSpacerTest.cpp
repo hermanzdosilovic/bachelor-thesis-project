@@ -21,7 +21,7 @@ TEST_CASE( "average char width spacer test on annotated Receipt", "[average char
 
     Util::TestResult result = spacerTest
     (
-        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1 },
+        ::layouter::aligner::MaxOverlapAlignerParameter{ 0.13f, 1, 0.13f, 0.13f },
         ::layouter::spacer::AvgCharWidthSpacerParameter{ 0.44f },
         [] ( ::layouter::wide_string const & source, ::layouter::wide_string const & target ) -> float
         {
